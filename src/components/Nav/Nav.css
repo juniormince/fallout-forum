@@ -51,6 +51,33 @@
     background: rgba(0, 0, 0, 0.3);
   }
   
+  /* link text */
   a {
     color: black;
   }
+
+  a:hover   {
+      color: white;
+  }
+
+
+
+
+  /* fixed empty block (placeholder space behind sidenav) */
+  .sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}

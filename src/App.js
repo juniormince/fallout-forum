@@ -25,7 +25,7 @@ import './styles/main.css';
 
 const App = () => (
   <div>
-    <Header title="FORUM APP EVENTUALLY - AN ASPIRING CLICKABLE HEADER" />
+    <Header className="header" title="FORUM APP EVENTUALLY - AN ASPIRING CLICKABLE HEADER" />
     <Router>
       <Switch>
         <Redirect exact from="/" to="/board" />
