@@ -3,16 +3,18 @@ import { connect } from 'react-redux';
 
 import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-import { triggerLogout } from '../../redux/actions/loginActions';
-import UserPage from '../UserPage/UserPage';
 
-import './InfoPage.css';
+//styling
+import './Board.css';
+
+//routing
+import SectionView from '../SectionView/SectionView';
 
 const mapStateToProps = state => ({
   user: state.user,
 });
 
-class InfoPage extends Component {
+class Board extends Component {
   componentDidMount() {
     this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
   }
@@ -20,30 +22,23 @@ class InfoPage extends Component {
   componentDidUpdate() {
     if (!this.props.user.isLoading && this.props.user.userName === null) {
       this.props.history.push('home');
+      //change to forbidden
     }
   }
-
-  logout = () => {
-    this.props.dispatch(triggerLogout());
-    this.props.history.push('home');
-  }
-
 
   render() {
     let content = null;
 
     if (this.props.user.userName) {
       content = (
-        <div className="profilepage">
-          Profile Page
-          <p/>
-
-          <button
-            onClick={this.logout}
-          >
-            Log Out
-          </button>
-          
+        <div>
+          <p className="basicBoard">
+            {/* Nav component */}
+            {/* Header component */}
+            {/* SectionView component */}
+            Board (home for logged in user)
+            <SectionView />
+          </p>
         </div>
       );
     }
@@ -57,5 +52,5 @@ class InfoPage extends Component {
   }
 }
 
-// this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(InfoPage);
+
+export default connect(mapStateToProps)(Board);

@@ -1,56 +1,47 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Link
+} from 'react-router-dom';
 
 import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-import { triggerLogout } from '../../redux/actions/loginActions';
-import UserPage from '../UserPage/UserPage';
 
-import './InfoPage.css';
+import './DiscussionItem.css';
+import CommentItem from '../CommentItem/CommentItem';
 
 const mapStateToProps = state => ({
   user: state.user,
 });
 
-class InfoPage extends Component {
+class DiscussionItem extends Component {
   componentDidMount() {
     this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
   }
 
   componentDidUpdate() {
     if (!this.props.user.isLoading && this.props.user.userName === null) {
-      this.props.history.push('home');
+      this.props.history.push('login');
     }
   }
-
-  logout = () => {
-    this.props.dispatch(triggerLogout());
-    this.props.history.push('home');
-  }
-
 
   render() {
     let content = null;
 
     if (this.props.user.userName) {
       content = (
-        <div className="profilepage">
-          Profile Page
-          <p/>
-
-          <button
-            onClick={this.logout}
-          >
-            Log Out
-          </button>
-          
-        </div>
+          <p className="DiscussionItem">
+            <Link to="/discussion">A Thread</Link>
+            {/* <CommentItem /> */}
+          </p>
       );
     }
 
     return (
       <div>
-        <Nav />
         { content }
       </div>
     );
@@ -58,4 +49,4 @@ class InfoPage extends Component {
 }
 
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(InfoPage);
+export default connect(mapStateToProps)(DiscussionItem);

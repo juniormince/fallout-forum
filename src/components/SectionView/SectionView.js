@@ -3,16 +3,15 @@ import { connect } from 'react-redux';
 
 import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-import { triggerLogout } from '../../redux/actions/loginActions';
-import UserPage from '../UserPage/UserPage';
 
-import './InfoPage.css';
+import './SectionView.css';
+import SectionItem from '../SectionItem/SectionItem';
 
 const mapStateToProps = state => ({
   user: state.user,
 });
 
-class InfoPage extends Component {
+class SectionView extends Component {
   componentDidMount() {
     this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
   }
@@ -23,34 +22,22 @@ class InfoPage extends Component {
     }
   }
 
-  logout = () => {
-    this.props.dispatch(triggerLogout());
-    this.props.history.push('home');
-  }
-
-
   render() {
     let content = null;
 
     if (this.props.user.userName) {
       content = (
-        <div className="profilepage">
-          Profile Page
-          <p/>
-
-          <button
-            onClick={this.logout}
-          >
-            Log Out
-          </button>
-          
+        <div>
+          <p className="basicTopic">
+            Section View (list of topics here)
+            <SectionItem />
+          </p>
         </div>
       );
     }
 
     return (
       <div>
-        <Nav />
         { content }
       </div>
     );
@@ -58,4 +45,4 @@ class InfoPage extends Component {
 }
 
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(InfoPage);
+export default connect(mapStateToProps)(SectionView);

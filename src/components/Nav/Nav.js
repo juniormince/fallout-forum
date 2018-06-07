@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+//icon pack here?
 
 const Nav = () => (
   <div className="navbar">
@@ -7,12 +8,12 @@ const Nav = () => (
       <ul>
         <li>
           <Link to="/user">
-            User Home
+            Home
           </Link>
         </li>
         <li>
-          <Link to="/info">
-            Info Page
+          <Link to="/profile">
+            Profile Page
           </Link>
         </li>
       </ul>
