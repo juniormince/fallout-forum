@@ -8,6 +8,11 @@ const Nav = () => (
       <ul>
         <li>
           <Link to="/user">
+            Welcome (placeholder)
+          </Link>
+        </li>
+        <li>
+          <Link to="/board">
             Home
           </Link>
         </li>
