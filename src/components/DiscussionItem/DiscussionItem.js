@@ -18,8 +18,17 @@ const mapStateToProps = state => ({
 });
 
 class DiscussionItem extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 'tell us how you really feel.'
+    };
+  }
+
+
+
   componentDidMount() {
-    this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
+    this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
   }
 
   componentDidUpdate() {
@@ -28,23 +37,42 @@ class DiscussionItem extends Component {
     }
   }
 
+
+
+  handleChange = (event) => {
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit= (event) => {
+    alert('fyi you wrote:' + this.state.value);
+    event.preventDefault();
+  }
+
   render() {
     let content = null;
 
     if (this.props.user.userName) {
       content = (
-          <div className="DiscussionItem">
+        <div className="DiscussionItem">
           {/* !!!! clean up p tags and spacing by moving all css tags to Board css !!!! */}
-          <p/>
-            <Link to="/discussion">A Thread</Link>
-            {/* <CommentItem /> */}
-          </div>
+          <p />
+          <Link to="/discussion">A Thread</Link>
+          {/* <CommentItem /> */}
+
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              Add Reply:<p/>
+          <span id="theBox"><textarea value={this.state.value} onChange={this.handleChange} /></span>
+            </label>
+            <input id="addReply" type="submit" value="Submit" />
+          </form>
+        </div>
       );
     }
 
     return (
       <div>
-        { content }
+        {content}
       </div>
     );
   }

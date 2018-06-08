@@ -1,3 +1,22 @@
 .DiscussionItem {
     background: purple;
+    display: grid;
 }
+
+textarea {
+    width: 400px;
+    height: 150px;
+    padding: 10px;
+    margin: 10px;
+  }
+  
+#theBox   {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #addReply {
+      float: right;
+      margin-right: 30px;
+  }
