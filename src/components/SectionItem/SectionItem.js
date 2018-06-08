@@ -11,7 +11,7 @@ import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
 //styling
-import './SectionItem.css';
+import '../../styles/main.css';
 
 //routing
 import SectionView from '../SectionView/SectionView';

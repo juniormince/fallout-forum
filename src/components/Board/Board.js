@@ -5,7 +5,7 @@ import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
 //styling
-import './Board.css';
+import '../../styles/main.css';
 
 //routing
 import SectionView from '../SectionView/SectionView';
@@ -33,9 +33,6 @@ class Board extends Component {
       content = (
         <div>
           <p className="basicBoard">
-            {/* Nav component */}
-            {/* Header component */}
-            {/* SectionView component */}
             Board (home for logged in user)
             <SectionView />
           </p>

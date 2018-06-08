@@ -7,7 +7,7 @@ import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
 import UserPage from '../UserPage/UserPage';
 
-import './InfoPage.css';
+import '../../styles/main.css';
 
 const mapStateToProps = state => ({
   user: state.user,

@@ -12,6 +12,8 @@ import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import CommentItem from '../CommentItem/CommentItem';
 
+import '../../styles/main.css';
+
 
 const mapStateToProps = state => ({
     user: state.user,
@@ -75,9 +77,9 @@ class CommentList extends Component {
 
         if (this.props.user.userName) {
             content = (
-                    <div>
+                    <div className="commentList">
 
-                        <div className="Comments">
+                        <div>
                             {this.state.commentList.map(comment =>
                                 <CommentItem key={comment.id}
                                     comment={comment} />

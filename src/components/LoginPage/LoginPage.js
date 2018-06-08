@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { triggerLogin, formError, clearError } from '../../redux/actions/loginActions';
 
+import '../../styles/main.css';
+
 
 const mapStateToProps = state => ({
   user: state.user,

@@ -5,7 +5,8 @@ import axios from 'axios';
 import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
-import './SectionView.css';
+import '../../styles/main.css';
+
 import SectionItem from '../SectionItem/SectionItem';
 
 const mapStateToProps = state => ({

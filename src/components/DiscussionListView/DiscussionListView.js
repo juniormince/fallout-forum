@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-    BrowserRouter as Router,
-    Route,
-    Redirect,
-    Link
-  } from 'react-router-dom';
-  import axios from 'axios';
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Link
+} from 'react-router-dom';
+import axios from 'axios';
 
 import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
 //styling
-import './DiscussionListView.css';
+import '../../styles/main.css';
 
 //routing
 import SectionView from '../SectionView/SectionView';
@@ -32,7 +32,7 @@ class DiscussionList extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
+    this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
     this.getThreads();
   }
 
@@ -64,10 +64,8 @@ class DiscussionList extends Component {
 
     if (this.props.user.userName) {
       content = (
-        <div >
-          <p className="DiscussionList">
 
-          <div className="Threads">
+        <div className="discussionList">
           {this.state.threadList.map(thread =>
             <DiscussionItem key={thread.id}
               thread={thread} />
@@ -75,18 +73,12 @@ class DiscussionList extends Component {
         </div>
 
 
-
-            {/* <Link to="/threadtitle">List of Threads (by Section ID)</Link> */}
-
-           {/* <DiscussionItem /> */}
-          </p>
-        </div>
       );
     }
 
     return (
       <div>
-        { content }
+        {content}
       </div>
     );
   }

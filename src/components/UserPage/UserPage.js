@@ -6,7 +6,7 @@ import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
 
-import './UserPage.css';
+import '../../styles/main.css';
 
 const mapStateToProps = state => ({
   user: state.user,

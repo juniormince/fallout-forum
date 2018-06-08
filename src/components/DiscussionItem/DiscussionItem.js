@@ -11,7 +11,8 @@ import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
 import CommentItem from '../CommentItem/CommentItem';
-import './DiscussionItem.css';
+
+import '../../styles/main.css';
 
 const mapStateToProps = state => ({
   user: state.user,
