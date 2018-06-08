@@ -37,10 +37,11 @@ class UserPage extends Component {
           <h1
             id="welcome"
           >
-            Welcome, { this.props.user.userName }!
+          coming soon: the profile settings page
+            {/* Welcome, { this.props.user.userName }! */}
           </h1>
-          eventually the control panel<br/>
-          change profile settings here
+          the ability to edit your profile info<br/>
+          will happen here
           <button
             onClick={this.logout}
           >

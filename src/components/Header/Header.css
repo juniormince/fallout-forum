@@ -1,11 +1,16 @@
 .instructions h1 {
     font-size: 24px;
     font-weight: 700;
+    /* padding-left: 100px; */
 }
 
 .instructions {
     background-color: #00acb0;
     padding: 5px;
+    padding-bottom: 55px;
     color: #ece7e7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 

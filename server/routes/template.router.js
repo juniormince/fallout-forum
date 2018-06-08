@@ -65,6 +65,47 @@ router.get('/comments', (req, res) => {
     }
 });
 
+// GET basic profile info (add limits to current user)
+// router.get('/profile', (req, res) => {
+//     console.log('GET all route for user');
+//     if (req.isAuthenticated()) {
+//         let queryText = `SELECT * FROM "person"
+//                         ORDER BY "person"."id" ASC;`;
+
+//         pool.query(queryText)
+//         .then((result) => {
+//             res.send(result.rows);
+//         }).catch((error) => {
+//             console.log('error on person GET: ', error);
+//             res.sendStatus(500);
+//         })
+//     } else {
+//         res.sendStatus(403);
+//     }
+// });
+
+
+
+//TESTER PROFILE GET
+router.get('/profile/:id', (req, res) => {
+    console.log('GET all route for user', req.params.id);
+    // if (req.isAuthenticated() && req.params.id === req.user.person_id) 
+        // {
+        let queryText = `SELECT * FROM "person" WHERE "id" = $1;`;
+        pool.query(queryText, [req.params.id])
+        .then((result) => {
+            res.send(result.rows);
+        }).catch((error) => {
+            console.log('error on person GET: ', error);
+            res.sendStatus(500);
+        })
+    // } 
+    // else {
+    //     res.sendStatus(403);
+    // }
+});
+
+
 
 
 // GET list of threads by topic id

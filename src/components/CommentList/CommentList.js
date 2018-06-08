@@ -81,7 +81,7 @@ class CommentList extends Component {
                             {this.state.commentList.map(comment =>
                                 <CommentItem key={comment.id}
                                     comment={comment} />
-                                //change comment.id to just {comment, i}
+                                //change comment.id to just {comment, i} ??
                             )}
                         </div>
 

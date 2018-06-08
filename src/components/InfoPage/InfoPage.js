@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
@@ -13,8 +14,19 @@ const mapStateToProps = state => ({
 });
 
 class InfoPage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      profile: [],
+    };
+  }
+
+
+
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
+    this.getProfile(3);
   }
 
   componentDidUpdate() {
@@ -28,6 +40,18 @@ class InfoPage extends Component {
     this.props.history.push('home');
   }
 
+  getProfile = (id) => {
+    axios.get(`/api/profile/${id}`)
+      .then((response) => {
+        console.log(response.data);
+        this.setState({
+          profile: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log('error on get: ', error);
+      })
+  };
 
 
   render() {
@@ -36,19 +60,43 @@ class InfoPage extends Component {
     if (this.props.user.userName) {
       content = (
         <div className="container">
-        <p/>
-          <div className="profilepage">
-            Profile Page
-          <p />
 
-            <button
-              onClick={this.logout}
-            >
-              Log Out
-          </button>
+          <div className="profilepage">
+            {/* Profile Page
+            <br/>
+            <br/>
+            <br/> */}
+
+            {/* make a component for profile info */}
+          <ul>
+              {this.state.profile.map(prof =>
+                <li key={prof.id}>
+                <h1>Profile Page</h1>
+                <img id="avatar" src={prof.profile_img}/><br/>
+                 username: 
+                 {prof.username}<br/>
+                  {/* {prof.profile_alias}<br/> */}
+                 location: 
+                 {prof.profile_location}<br/>
+                 timezone: 
+                 {prof.profile_timezone}<br/>
+                 contact: 
+                 {prof.profile_contact}
+
+                </li>
+              )}
+            </ul>
+
 
           </div>
-        </div>
+
+          <button
+            onClick={this.logout}
+          >
+            Log Out
+          </button>
+
+        </div >
       );
     }
 
