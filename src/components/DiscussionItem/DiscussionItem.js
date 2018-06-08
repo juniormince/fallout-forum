@@ -10,8 +10,8 @@ import {
 import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
-import './DiscussionItem.css';
 import CommentItem from '../CommentItem/CommentItem';
+import './DiscussionItem.css';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -33,10 +33,12 @@ class DiscussionItem extends Component {
 
     if (this.props.user.userName) {
       content = (
-          <p className="DiscussionItem">
+          <div className="DiscussionItem">
+          {/* !!!! clean up p tags and spacing by moving all css tags to Board css !!!! */}
+          <p/>
             <Link to="/discussion">A Thread</Link>
             {/* <CommentItem /> */}
-          </p>
+          </div>
       );
     }
 

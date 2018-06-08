@@ -6,6 +6,7 @@ import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
 
+import './UserPage.css';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -32,12 +33,14 @@ class UserPage extends Component {
 
     if (this.props.user.userName) {
       content = (
-        <div>
+        <div className="control">
           <h1
             id="welcome"
           >
             Welcome, { this.props.user.userName }!
           </h1>
+          eventually the control panel<br/>
+          change profile settings here
           <button
             onClick={this.logout}
           >

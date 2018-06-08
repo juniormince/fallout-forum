@@ -14,7 +14,7 @@ const mapStateToProps = state => ({
 
 class InfoPage extends Component {
   componentDidMount() {
-    this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
+    this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
   }
 
   componentDidUpdate() {
@@ -28,23 +28,26 @@ class InfoPage extends Component {
     this.props.history.push('home');
   }
 
-  
+
 
   render() {
     let content = null;
 
     if (this.props.user.userName) {
       content = (
-        <div className="profilepage">
-          Profile Page
-          <p/>
+        <div className="container">
+        <p/>
+          <div className="profilepage">
+            Profile Page
+          <p />
 
-          <button
-            onClick={this.logout}
-          >
-            Log Out
+            <button
+              onClick={this.logout}
+            >
+              Log Out
           </button>
-          
+
+          </div>
         </div>
       );
     }
@@ -52,7 +55,7 @@ class InfoPage extends Component {
     return (
       <div>
         <Nav />
-        { content }
+        {content}
       </div>
     );
   }
