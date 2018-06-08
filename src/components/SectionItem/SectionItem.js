@@ -5,10 +5,7 @@ import {
     Route,
     Redirect,
     Link
-  } from 'react-router-dom';
-
-
-
+} from 'react-router-dom';
 
 import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
@@ -24,12 +21,8 @@ const mapStateToProps = state => ({
     user: state.user,
 });
 
-class SectionItem extends Component {
-    constructor(props) {
-        super(props);
 
-        this.state = ''
-    }
+class SectionItem extends Component {
 
     componentDidMount() {
         this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
@@ -42,30 +35,24 @@ class SectionItem extends Component {
         }
     }
 
-
-
-
-     
-//     toThread = (event) => {
-//         this.props.history.push('/threadlist');
-//   }
+    //  figure out how to click/get to thread by ID
+    //     toThread = (event) => {
+    //         axios.get ??
+    //   }
 
     render() {
         let content = null;
 
         if (this.props.user.userName) {
             content = (
-                <div>
-                    <p
-                        className="basicSectionItem"
-                    >
-                        <Link to="/threadlist">Section Details (individual section card)</Link>
-                        <br/>
-                        (make on click on Title to route to discussion list)
-             
-           {/* <DiscussionListView /> */}
-                    </p>
+
+                <div className="sectionItem">
+                    <Link to="/threadlist"><h1>{this.props.topic.title} </h1></Link>
+                    <div className="container">
+                        <p>{this.props.topic.description}</p>
+                    </div>
                 </div>
+
             );
         }
 
