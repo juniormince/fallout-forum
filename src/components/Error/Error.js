@@ -56,13 +56,16 @@ class Error extends Component {
         if (this.props.user.userName) {
             content = (
 
-                <div>
-                    <p className="uhoh"
-                    >
-                       (looks like we don't have that information)
-                       <br/>
+                <div className="errorcontainer">
+                    <div className="error_image">
+                        <img src="https://i.giphy.com/media/CdhxVrdRN4YFi/giphy.webp" />
+                    </div>
+
+                    <div className="uhoh">
+                        (looks like we don't have that information)
+                       <br />
                         <Link to="/board">Go Home Kid</Link>
-                    </p>
+                    </div>
                 </div>
             );
         }

@@ -1,3 +1,22 @@
-.uhoh   {
-background: rosybrown;
+.error_image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
 }
+
+.uhoh   {
+    background: rosybrown;
+    padding: 10px;
+    margin-top: 10px;
+    /* background:url('https://i.giphy.com/media/CdhxVrdRN4YFi/giphy.webp');
+    background-size:400px; */
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-left: 800px;
+    margin-right: 500px;
+    width:300px;
+    height:100px;
+    text-align: center;
+    }
