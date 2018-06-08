@@ -4,9 +4,6 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-
-
 form {
     background-color: #dbd5d5;
     width: 30%;
@@ -73,3 +70,230 @@ li a:hover {
     text-decoration: underline;
     color: #eee;
 }
+
+
+/***** HEADER *****/
+
+.instructions h1 {
+    font-size: 24px;
+    font-weight: 700;
+    /* padding-left: 100px; */
+}
+
+.instructions {
+    background-color: #00acb0;
+    padding: 5px;
+    padding-bottom: 55px;
+    color: #ece7e7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/***** NAV SIDEBAR *****/
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    left: 50px;
+    top: 50px;
+    box-shadow: 3px 3px 5px;
+  }
+
+  .bm-burger-button:hover {
+    border-style: solid;
+    border-color: #373a47;
+    border-radius: 3px;
+  }
+  
+  /* Color/shape of burger icon bars */
+  .bm-burger-bars {
+    background: #373a47;
+  }
+  
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+  
+  /* Color/shape of close button cross */
+  .bm-cross {
+    background: #bdc3c7;
+  }
+  
+  /* General sidebar styles */
+  .bm-menu {
+    background: #373a47;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+  }
+  
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+    fill: #373a47;
+  }
+  
+  /* Wrapper for item list */
+  .bm-item-list {
+    color: #b8b7ad;
+    padding: 0.8em;
+  }
+  
+  /* Individual item */
+  .bm-item {
+    display: inline-block;
+  }
+  
+  /* Styling of overlay */
+  .bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  /* link text */
+  a {
+    color: black;
+  }
+
+  a:hover   {
+      color: white;
+  }
+
+  /* fixed empty block (placeholder space behind sidenav) */
+  .sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+
+/***** LOG IN / OUT DISPLAY *****/
+/* ^^ look above and pull down here ^^ */
+
+
+
+/***** REGISTER DISPLAY *****/
+/* ^^ look above and pull down here ^^ */
+
+
+
+/***** PROFILE PAGE DISPLAY *****/
+
+.profilepage {
+    background: grey;
+}
+
+#avatar {
+    height: 100px;
+    width: 100px;
+}
+
+/***** PROFILE SETTINGS/CONTROL PANEL DISPLAY *****/
+
+.control {
+    background: fuchsia;
+}
+
+/***** MAIN BOARD HOME *****/
+
+.basicBoard   {
+    background: red;
+}
+
+/***** SECTION LIST DISPLAY *****/
+
+.Topics   {
+    background: lightskyblue;
+}
+
+/***** SECTION ITEM DISPLAY *****/
+
+.sectionItem    {
+    background: lightgreen;
+}
+
+/***** THREAD LIST DISPLAY *****/
+
+.discussionList {
+    background: yellow;
+}
+
+/***** THREAD ITEM DISPLAY *****/
+
+.discussionItem {
+    background: plum;
+    display: grid;
+}
+
+textarea {
+    width: 400px;
+    height: 150px;
+    padding: 10px;
+    margin: 10px;
+  }
+  
+#theBox   {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #addReply {
+      float: right;
+      margin-right: 30px;
+  }
+
+/***** COMMENT LIST DISPLAY *****/
+
+.commentList    {
+    background: palegreen;
+}
+
+/***** COMMENT ITEM DISPLAY *****/
+
+.comment    {
+    background: orange;
+}
+
+
+/***** ERROR *****/
+
+.errorAvatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+}
+
+.errorcontainer   {
+    background: rosybrown;
+    padding: 10px;
+    /* width:500px;
+    height:500px; */
+    /* background:url('https://i.giphy.com/media/CdhxVrdRN4YFi/giphy.webp');
+    background-size:400px; */
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    }
+
+/***** FORBIDDEN *****/
+
+/* ???? how to make component ???? */
+/* style here when you figure it out */

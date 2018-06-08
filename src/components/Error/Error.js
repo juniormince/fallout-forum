@@ -14,7 +14,7 @@ import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
 //styling
-import './Error.css';
+import '../../styles/main.css';
 
 //routing
 import SectionView from '../SectionView/SectionView';
@@ -57,15 +57,11 @@ class Error extends Component {
             content = (
 
                 <div className="errorcontainer">
-                    <div className="error_image">
-                        <img src="https://i.giphy.com/media/CdhxVrdRN4YFi/giphy.webp" />
-                    </div>
-
-                    <div className="uhoh">
+                 
+                        <img id="errorAvatar" src="https://i.giphy.com/media/CdhxVrdRN4YFi/giphy.webp" />
                         (looks like we don't have that information)
                        <br />
                         <Link to="/board">Go Home Kid</Link>
-                    </div>
                 </div>
             );
         }
