@@ -6,6 +6,7 @@ import {
     Redirect,
     Link
   } from 'react-router-dom';
+  import axios from 'axios';
 
 import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
@@ -22,8 +23,17 @@ const mapStateToProps = state => ({
 });
 
 class DiscussionList extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      threadList: [],
+    };
+  }
+
   componentDidMount() {
     this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
+    this.getThreads();
   }
 
   componentDidUpdate() {
@@ -33,6 +43,22 @@ class DiscussionList extends Component {
     }
   }
 
+
+
+
+  getThreads = () => {
+    axios.get('/api/threads')
+      .then((response) => {
+        console.log(response.data);
+        this.setState({
+          threadList: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log('error on get: ', error);
+      })
+  };
+
   render() {
     let content = null;
 
@@ -41,7 +67,16 @@ class DiscussionList extends Component {
         <div >
           <p className="DiscussionList">
 
-            <Link to="/threadtitle">List of Threads (by Section ID)</Link>
+          <div className="Threads">
+          {this.state.threadList.map(thread =>
+            <DiscussionItem key={thread.id}
+              thread={thread} />
+          )}
+        </div>
+
+
+
+            {/* <Link to="/threadtitle">List of Threads (by Section ID)</Link> */}
 
            {/* <DiscussionItem /> */}
           </p>

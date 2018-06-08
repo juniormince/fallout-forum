@@ -20,6 +20,7 @@ import Error from './components/Error/Error';
 
 //lord style, ruler of other styles
 import './styles/main.css';
+import CommentList from './components/CommentList/CommentList';
 
 
 
@@ -60,7 +61,7 @@ const App = () => (
         />
         <Route
           path="/discussion"
-          component={CommentItem}
+          component={CommentList}
         />
 
 

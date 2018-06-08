@@ -13,8 +13,6 @@ const mapStateToProps = state => ({
 });
 
 
-
-
 class SectionView extends Component {
   constructor(props) {
     super(props);

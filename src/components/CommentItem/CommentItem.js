@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Link
+} from 'react-router-dom';
 
 
 import Nav from '../../components/Nav/Nav';
@@ -13,7 +19,7 @@ const mapStateToProps = state => ({
 
 class CommentItem extends Component {
   componentDidMount() {
-    this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
+    this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
   }
 
   componentDidUpdate() {
@@ -28,16 +34,24 @@ class CommentItem extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
-          <p className="comment">
+          {/* <p className="comment">
             map comment cards!
-          </p>
+          </p> */}
+
+          <div className="comment">
+            <p>{this.props.comment.reply} -breee</p>
+            <div className="container">
+              {/* <p>{this.props.comment.person_id}</p> */}
+            </div>
+          </div>
+
         </div>
       );
     }
 
     return (
       <div>
-        { content }
+        {content}
       </div>
     );
   }
