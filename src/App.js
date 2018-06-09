@@ -25,7 +25,7 @@ import CommentList from './components/CommentList/CommentList';
 
 
 const App = () => (
-  <div>
+  <div >
     <Header className="header" title="FORUM APP EVENTUALLY - AN ASPIRING CLICKABLE HEADER" />
     <Router>
       <Switch>

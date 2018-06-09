@@ -52,7 +52,7 @@ class UserPage extends Component {
     }
 
     return (
-      <div>
+      <div className="gridSettings">
         <Nav />
         { content }
       </div>

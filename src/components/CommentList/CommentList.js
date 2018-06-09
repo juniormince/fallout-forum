@@ -103,7 +103,8 @@ class CommentList extends Component {
         }
 
         return (
-            <div>
+            <div className="gridCommentList">
+            <Nav />
                 {content}
             </div>
         );

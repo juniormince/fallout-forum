@@ -34,15 +34,15 @@ class CommentItem extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
-          {/* <p className="comment">
-            map comment cards!
-          </p> */}
+          <div className="mini-profile">
+              {/* MAKE MINI PROFILE COMPONENT */}
+              <p>{this.props.comment.person_id}</p>
+              <p/>
+              username eventually (JOIN get)
+            </div>
 
           <div className="comment">
             <p>{this.props.comment.reply} -breee</p>
-            <div className="container">
-              {/* <p>{this.props.comment.person_id}</p> */}
-            </div>
           </div>
 
         </div>
@@ -50,7 +50,7 @@ class CommentItem extends Component {
     }
 
     return (
-      <div>
+      <div className="gridComment">
         {content}
       </div>
     );

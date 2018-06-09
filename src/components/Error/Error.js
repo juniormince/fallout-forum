@@ -67,7 +67,8 @@ class Error extends Component {
         }
 
         return (
-            <div>
+            <div className="gridError">
+            <Nav />
                 {content}
             </div>
         );

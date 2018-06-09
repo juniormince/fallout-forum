@@ -44,6 +44,7 @@ class Nav extends Component {
   render() {
     return (
       <div>
+        <aside>
         <Menu
           overlayClassName={"sidenav"}
           width={280}
@@ -57,6 +58,7 @@ class Nav extends Component {
           {/* <a onClick={this.showSettings} className="menu-item--small" href="">Settings</a> */}
 
         </Menu>
+        </aside>
       </div>
     );
   }

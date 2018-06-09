@@ -2,16 +2,159 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: black;
 }
 
-form {
-    background-color: #dbd5d5;
-    width: 30%;
-    height: 250px;
-    margin: 20px auto;
-    padding: 25px;
-    border-radius: 2px;
+
+
+
+.gridBase   {
+    display: grid;
+    grid-template-columns: 2fr 10fr 1fr; /* size of columns from left to right */
+    grid-gap: 20px; /* margins between columns and rows */
+    /* grid-auto-rows: minmax(100px, auto); */
+
 }
+
+.gridBase  div {
+    /* display: grid; */
+    /* background: darkslategray; */
+    padding: 5px; 
+}
+
+.gridBase  div:nth-child(odd) {
+    /* background: #ddd; */
+}
+
+
+/* board nested in board gridbase */
+.board   {
+    /* background: red; */
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-gap: 25px; 
+    /* margin space around container */
+}
+
+
+
+
+/* thread nested in thread list */
+
+.gridThreadList   {
+    display: grid;
+    grid-template-columns: 2fr 10fr 1fr; /* size of columns from left to right */
+    grid-template-rows: 1fr;
+    grid-column-gap: 25px; /* margins between columns and rows */
+    /* grid-auto-rows: minmax(100px, auto); */
+    padding-top: 50px;
+}
+
+.gridThread  div {
+    padding: 5px;
+}
+
+.gridThread {
+    margin: 2px 5px; /* FIX GRID ORDERING TO REMOVE THIS MARGIN */
+}
+
+
+
+/* thread nested in thread list MINI PROFILE GRID ALSO HERE */
+
+.gridCommentList   {
+    display: grid;
+    grid-template-columns: 2fr 10fr 1fr;
+    /* grid-template-rows: 1fr; */
+    grid-column-gap: 10px;
+    /* grid-row-gap: 10px; */
+    padding-top: 50px;
+}
+
+.gridComment  div {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+
+    grid-column-gap: 10px;
+    padding: 5px 10px;
+    /* margin: 0 5px; */
+}
+
+
+/* ERROR GRID */
+
+.gridError   {
+    display: grid;
+    grid-template-columns: 2fr 6fr 3fr; /* size of columns from left to right */
+    grid-gap: 20px; /* margins between columns and rows */
+    /* grid-auto-rows: minmax(100px, auto); */
+
+}
+
+.gridError  div {
+    /* display: grid; */
+    /* background: darkslategray; */
+    padding: 5px;
+    margin-top: 50px;
+}
+
+
+/* PROFILE (INFOPAGE) GRID */
+
+.gridProfile   {
+    display: grid;
+    grid-template-columns: 1.5fr 6fr 3fr; /* size of columns from left to right */
+    grid-gap: 20px; /* margins between columns and rows */
+    /* grid-auto-rows: minmax(100px, auto); */
+
+}
+
+.gridProfile  div {
+    /* background: darkslategray; */
+    padding: 5px;
+    margin-top: 25px;
+}
+
+
+/* PROFILE SETTINGS GRID */
+
+.gridSettings   {
+    display: grid;
+    grid-template-columns: 1.5fr 6fr 3fr; /* size of columns from left to right */
+    grid-gap: 20px; /* margins between columns and rows */
+    /* grid-auto-rows: minmax(100px, auto); */
+
+}
+
+.gridSettings  div {
+    /* background: darkslategray; */
+    padding: 5px;
+    margin-top: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ***** END TESTING ***** */
+
+
+
+
+
+
+
+
 
 input {
     margin: 5px;
@@ -74,20 +217,19 @@ li a:hover {
 
 /***** HEADER *****/
 
-.instructions h1 {
-    font-size: 24px;
-    font-weight: 700;
-    /* padding-left: 100px; */
-}
-
 .instructions {
     background-color: #00acb0;
     padding: 5px;
     padding-bottom: 55px;
     color: #ece7e7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 3fr 6fr 1fr;
+    grid-gap: 20px;
+}
+.instructions h1 {
+    font-size: 24px;
+    font-weight: 700;
+    /* padding-left: 100px; */
 }
 
 
@@ -186,10 +328,25 @@ li a:hover {
 /* ^^ look above and pull down here ^^ */
 
 
+/* (also in thread item display) */
+form {
+    border-style: solid;
+    background-color: #dbd5d5;
+    width: 30%;
+    height: 250px;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 2px;
+}
 
 /***** REGISTER DISPLAY *****/
 /* ^^ look above and pull down here ^^ */
 
+.registerAlert  {
+    background: white;
+    display: grid;
+    grid-template-columns: 3fr 3fr;
+}
 
 
 /***** PROFILE PAGE DISPLAY *****/
@@ -203,21 +360,36 @@ li a:hover {
     width: 100px;
 }
 
+#btn-logout {
+    float: right;
+    margin-top: 5px;
+}
+
 /***** PROFILE SETTINGS/CONTROL PANEL DISPLAY *****/
 
 .control {
     background: fuchsia;
 }
 
+/***** MINI-PROFILE DISPLAY *****/
+
+.mini-profile    {
+    background: darksalmon;
+    padding: 10px;
+}
+
+
+
+
 /***** MAIN BOARD HOME *****/
 
-.basicBoard   {
+/* .board   {
     background: red;
-}
+} */
 
 /***** SECTION LIST DISPLAY *****/
 
-.Topics   {
+.sectionTopics   {
     background: lightskyblue;
 }
 
@@ -237,7 +409,6 @@ li a:hover {
 
 .discussionItem {
     background: plum;
-    display: grid;
 }
 
 textarea {
@@ -245,6 +416,8 @@ textarea {
     height: 150px;
     padding: 10px;
     margin: 10px;
+    border-style: solid;
+    border-width: 3px;
   }
   
 #theBox   {
