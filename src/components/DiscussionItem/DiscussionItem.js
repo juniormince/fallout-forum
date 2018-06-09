@@ -54,13 +54,7 @@ class DiscussionItem extends Component {
 
     if (this.props.user.userName) {
       content = (
-        <div className="RENAME">
-          {/* !!!! clean up p tags and spacing by moving all css tags to Board css !!!! */}
-          <p />
-          {/* <Link to="/discussion">A Thread</Link> */}
-          {/* <CommentItem /> */}
-
-
+        <div>
           <div className="discussionItem">
                     <Link to="/discussion"><h3>{this.props.thread.title} </h3></Link>
                     <div className="container">
@@ -69,21 +63,12 @@ class DiscussionItem extends Component {
                     </div>
                 </div>
 
-
-
-          {/* <form onSubmit={this.handleSubmit}>
-            <label>
-              Add Reply:<p/>
-          <span id="theBox"><textarea value={this.state.value} onChange={this.handleChange} /></span>
-            </label>
-            <input id="addReply" type="submit" value="Submit" />
-          </form> */}
         </div>
       );
     }
 
     return (
-      <div>
+      <div className="gridThread">
         {content}
       </div>
     );

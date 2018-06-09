@@ -8,6 +8,7 @@ import {
 
 const Header = ({ title }) => (
   <div className="instructions">
+  <div/>
     <Router>
       <div>
         <a href="/board"><h1 className="lead">{title}</h1></a>

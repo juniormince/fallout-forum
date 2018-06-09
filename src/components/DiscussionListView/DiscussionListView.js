@@ -77,7 +77,8 @@ class DiscussionList extends Component {
     }
 
     return (
-      <div>
+      <div className="gridThreadList">
+      <Nav />
         {content}
       </div>
     );

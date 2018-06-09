@@ -31,17 +31,15 @@ class Board extends Component {
 
     if (this.props.user.userName) {
       content = (
-        <div>
-          <p className="basicBoard">
+        <div className="board">
             Board (home for logged in user)
             <SectionView />
-          </p>
         </div>
       );
     }
 
     return (
-      <div>
+      <div className="gridBase">
         <Nav />
         { content }
       </div>

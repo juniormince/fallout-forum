@@ -65,7 +65,7 @@ class LoginPage extends Component {
   render() {
     return (
       <div>
-        { this.renderAlert() }
+        <p className="registerAlert"> {this.renderAlert()} </p>
         <form onSubmit={this.login}>
           <h1>Login</h1>
           <div>

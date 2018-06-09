@@ -90,7 +90,8 @@ class InfoPage extends Component {
 
           </div>
 
-          <button
+          <button 
+          id="btn-logout"
             onClick={this.logout}
           >
             Log Out
@@ -101,7 +102,7 @@ class InfoPage extends Component {
     }
 
     return (
-      <div>
+      <div className="gridProfile">
         <Nav />
         {content}
       </div>

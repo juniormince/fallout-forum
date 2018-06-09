@@ -55,7 +55,7 @@ class SectionView extends Component {
     if (this.props.user.userName) {
       content = (
 
-        <div className="Topics">
+        <div className="sectionTopics">
           {this.state.topicList.map(topic =>
             <SectionItem key={topic.id}
               topic={topic} />
