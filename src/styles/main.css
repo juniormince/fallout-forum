@@ -10,7 +10,7 @@ body {
 
 .gridBase   {
     display: grid;
-    grid-template-columns: 2fr 10fr 1fr; /* size of columns from left to right */
+    grid-template-columns: 3fr 10fr 3fr; /* size of columns from left to right */
     grid-gap: 20px; /* margins between columns and rows */
     /* grid-auto-rows: minmax(100px, auto); */
 
@@ -41,13 +41,14 @@ body {
 
 /* thread nested in thread list */
 
-.gridThreadList   {
+.gridThreadList  {
     display: grid;
-    grid-template-columns: 2fr 10fr 1fr; /* size of columns from left to right */
-    grid-template-rows: 1fr;
+    grid-template-columns: 2fr 10fr 3fr; /* size of columns from left to right */
+    grid-template-rows: 1fr 5fr 3fr;
     grid-column-gap: 25px; /* margins between columns and rows */
     /* grid-auto-rows: minmax(100px, auto); */
     padding-top: 50px;
+    grid-row-gap: 30px;
 }
 
 .gridThread  div {
@@ -307,7 +308,7 @@ li a:hover {
   /* fixed empty block (placeholder space behind sidenav) */
   .sidenav {
     height: 100%;
-    width: 160px;
+    width: 260px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -404,6 +405,61 @@ form {
 .discussionList {
     background: yellow;
 }
+
+.threadButton {
+    background: pink;
+    float:right;
+    margin: 10px;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    border-style: solid;
+    border-width: 3px;
+
+}
+
+#btn-thread {
+    padding: 0 18px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.threadButton:hover {
+    background: lime;
+}
+
+/***** NEW THREAD DISPLAY *****/
+
+#newThreadForm   {
+    border-style: solid;
+    width: 40%;
+    height: 300px;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 2px;
+}
+
+#newThreadTitle {
+    margin-left: 10px;
+    border-style: solid;
+    width: 70%;
+}
+
+#newTitle {
+    margin-left: 10px;
+    width: 70%;
+}
+
+#newThreadBody {
+    width: 70%;
+}
+
+#threadAdd  {
+    margin: 10px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
+
 
 /***** THREAD ITEM DISPLAY *****/
 
