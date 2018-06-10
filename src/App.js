@@ -14,13 +14,14 @@ import UserPage from './components/UserPage/UserPage';
 import InfoPage from './components/InfoPage/InfoPage';
 import Board from './components/Board/Board';
 import DiscussionListView from './components/DiscussionListView/DiscussionListView';
+import NewDiscussion from './components/DiscussionItem/NewDiscussion';
 import DiscussionItem from './components/DiscussionItem/DiscussionItem';
 import CommentItem from './components/CommentItem/CommentItem';
+import CommentList from './components/CommentList/CommentList';
 import Error from './components/Error/Error';
 
 //lord style, ruler of other styles
 import './styles/main.css';
-import CommentList from './components/CommentList/CommentList';
 
 
 
@@ -56,6 +57,10 @@ const App = () => (
           component={DiscussionListView}
         />
         <Route
+          path="/newthread"
+          component={NewDiscussion}
+        />
+        <Route
           path="/threadtitle"
           component={DiscussionItem}
         />
@@ -67,8 +72,8 @@ const App = () => (
 
 
         {/* OTHERWISE (no path!) */}
-        <Route render={() => <Error/>
-        // <h1>404</h1>
+        <Route render={() => <Error />
+          // <h1>404</h1>
         } />
         {/* make 404 component */}
 

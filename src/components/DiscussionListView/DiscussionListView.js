@@ -59,26 +59,31 @@ class DiscussionList extends Component {
       })
   };
 
+
+
   render() {
     let content = null;
 
     if (this.props.user.userName) {
       content = (
-
-        <div className="discussionList">
-          {this.state.threadList.map(thread =>
-            <DiscussionItem key={thread.id}
-              thread={thread} />
-          )}
+        <div>
+          <div className="discussionList">
+          <div className="threadButton"><Link to="/newthread" id="btn-thread">new thread</Link></div>
+          <br/><br/><br/><br/> 
+          {/* ^^ AHAHA GET RID OF THESE ^^ */}
+            {this.state.threadList.map(thread =>
+              <DiscussionItem key={thread.id}
+                thread={thread} />
+            )}
+          </div>
         </div>
-
 
       );
     }
 
     return (
       <div className="gridThreadList">
-      <Nav />
+        <Nav />
         {content}
       </div>
     );

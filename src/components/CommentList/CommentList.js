@@ -94,10 +94,6 @@ class CommentList extends Component {
                             </label>
                             <input id="addReply" type="submit" value="Submit" />
                         </form>
-
-
-
-                        {/* <Link to="/threadtitle">List of Threads (by Section ID)</Link> */}
                 </div>
             );
         }
