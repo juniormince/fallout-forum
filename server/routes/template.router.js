@@ -24,12 +24,12 @@ router.get('/topics', (req, res) => {
 });
 
 /**
- * GET threads 
+ * GET threads TEST
  */
 router.get('/threads', (req, res) => {
     console.log('GET all route for thread');
     if (req.isAuthenticated()) {
-        let queryText = `SELECT * FROM "thread"
+        let queryText = `SELECT * FROM "thread" where "topic_id" = 2
                         ORDER BY "thread"."id" ASC;`;
 
         pool.query(queryText)
@@ -45,7 +45,7 @@ router.get('/threads', (req, res) => {
 });
 
 /**
- * GET comments 
+ * GET comments TEST
  */
 router.get('/comments', (req, res) => {
     console.log('GET all route for comments');
@@ -86,7 +86,7 @@ router.get('/comments', (req, res) => {
 
 
 
-//TESTER PROFILE GET
+// GET profile TESTER
 router.get('/profile/:id', (req, res) => {
     console.log('GET all route for user', req.params.id);
     // if (req.isAuthenticated() && req.params.id === req.user.person_id) 

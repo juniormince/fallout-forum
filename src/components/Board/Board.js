@@ -31,10 +31,8 @@ class Board extends Component {
 
     if (this.props.user.userName) {
       content = (
-        <div className="board">
-            Board (home for logged in user)
             <SectionView />
-        </div>
+
       );
     }
 

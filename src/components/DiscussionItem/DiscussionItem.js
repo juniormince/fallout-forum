@@ -39,7 +39,7 @@ class DiscussionItem extends Component {
   }
 
 
-// for textarea
+  // for textarea
   // handleChange = (event) => {
   //   this.setState({ value: event.target.value });
   // }
@@ -54,21 +54,18 @@ class DiscussionItem extends Component {
 
     if (this.props.user.userName) {
       content = (
-        <div>
-          <div className="discussionItem">
-                    <Link to="/discussion"><h3>{this.props.thread.title} </h3></Link>
-                    <div className="container">
-                    {/* <p>there would be comments by users here</p> */}
-                        {/* <p>{this.props.thread.comment_id}</p> */}
-                    </div>
-                </div>
-
+        <div className="discussionItem">
+          <Link to="/discussion"><h2>{this.props.thread.title} </h2></Link>
+          <span className="container">
+          there would be comments by users here
+                    {/* {this.props.thread.date} */}
+          </span>
         </div>
       );
     }
 
     return (
-      <div className="gridThread">
+      <div>
         {content}
       </div>
     );
