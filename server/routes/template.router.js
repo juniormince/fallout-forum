@@ -63,6 +63,8 @@ router.post('/newReply', (req, res) => {
     }
 });
 
+
+
 // ******** GET profile settings
 router.get('/profile/:id', (req, res) => {
     console.log('GET all route for user', req.params.id);
@@ -135,7 +137,32 @@ router.put('/:id', (req, res) => {
 // });
 
 
-// ******** GET threads TEST
+// ******** GET threads by topic id NOTES
+// router.get('/threads', (req, res) => {
+//     console.log('GET all threads by topic id');
+//     if(req.isAuthenticated()) {
+//         // let queryText = 
+//         //                 `SELECT "thread"."title", "thread"."id"
+//         //                 FROM "---"
+//         //                 RIGHT JOIN "----" ON "---"."_id" = "----"."id"
+//         //                 GROUP BY "thread"."title"
+//         //                 ORDER BY count DESC`;
+//         pool.query(queryText)
+//         .then((result) => {
+//             res.send(result.rows);
+//         })
+//         .catch((error) => {
+//             console.log('error on GET /threads: ', error);
+//             res.sendStatus(500);
+//         })
+//     } 
+//     else {
+//         res.sendStatus(403);
+//     }
+// });
+
+
+// ******** GET threads DRAFT (gets all)
 router.get('/threads', (req, res) => {
     console.log('GET all route for thread');
     if (req.isAuthenticated() 
@@ -204,31 +231,6 @@ router.get('/comments', (req, res) => {
 
 
 
-// ******** GET list of threads by topic id
-// router.get('/threads', (req, res) => {
-//     console.log('GET all threads by topic id');
-//     if(req.isAuthenticated()) {
-//         // let queryText = 
-//         //                 `SELECT "thread"."title", "thread"."id"
-//         //                 FROM "---"
-//         //                 RIGHT JOIN "----" ON "---"."_id" = "----"."id"
-//         //                 GROUP BY "thread"."title"
-//         //                 ORDER BY count DESC`;
-//         pool.query(queryText)
-//         .then((result) => {
-//             res.send(result.rows);
-//         })
-//         .catch((error) => {
-//             console.log('error on GET /threads: ', error);
-//             res.sendStatus(500);
-//         })
-//     } 
-//     else {
-//         res.sendStatus(403);
-//     }
-// });
-
-
 // ******** POST route template (new thread)
 // router.post('/addthread', (req, res) => {
 //     if (req.isAuthenticated()) {
@@ -246,25 +248,6 @@ router.get('/comments', (req, res) => {
 //         res.sendStatus(403);
 //     }
 // });
-
-
-// ******** POST route template (new reply/comment)
-router.post('/newReply', (req, res) => {
-    if (req.isAuthenticated()) {
-        let queryText = `INSERT INTO "comment" ("reply", "person_id")
-                        VALUES ($1, $2)`;
-        pool.query(queryText, [req.body.reply, req.user.id])
-            .then((result) => {
-                res.sendStatus(201);
-            })
-            .catch((error) => {
-                res.sendStatus(500);
-                console.log('error on POST: ', error)
-            })
-    } else {
-        res.sendStatus(403);
-    }
-});
 
 
 
