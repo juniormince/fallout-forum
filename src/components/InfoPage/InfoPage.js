@@ -5,7 +5,7 @@ import axios from 'axios';
 import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
-import UserPage from '../UserPage/UserPage';
+// import UserPage from '../UserPage/UserPage';
 
 import '../../styles/main.css';
 
@@ -72,7 +72,7 @@ class InfoPage extends Component {
               {this.state.profile.map(prof =>
                 <li key={prof.id}>
                 <h1>Profile Page</h1>
-                <img id="avatar" src={prof.profile_img}/><br/>
+                <img id="avatar" src={prof.profile_img} alt="profile avatar"/><br/>
                  username: 
                  {prof.username}<br/>
                   {/* {prof.profile_alias}<br/> */}

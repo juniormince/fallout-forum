@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-    BrowserRouter as Router,
-    Route,
-    Redirect,
     Link
   } from 'react-router-dom';
 
@@ -15,10 +12,6 @@ import { USER_ACTIONS } from '../../redux/actions/userActions';
 
 //styling
 import '../../styles/main.css';
-
-//routing
-import SectionView from '../SectionView/SectionView';
-import DiscussionListView from '../DiscussionListView/DiscussionListView';
 
 const mapStateToProps = state => ({
     user: state.user,
@@ -58,7 +51,7 @@ class Error extends Component {
 
                 <div className="errorcontainer">
                  
-                        <img id="errorAvatar" src="https://i.giphy.com/media/CdhxVrdRN4YFi/giphy.webp" />
+                        <img id="errorAvatar" src="https://i.giphy.com/media/CdhxVrdRN4YFi/giphy.webp" alt="error" />
                         (looks like we don't have that information)
                        <br />
                         <Link to="/board">Go Home Kid</Link>
