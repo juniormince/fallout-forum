@@ -11,12 +11,14 @@ body {
 .gridBase   {
     display: grid;
     grid-template-columns: 3fr 10fr 3fr; /* size of columns from left to right */
-    grid-gap: 20px; /* margins between columns and rows */
+    grid-gap: 20px; 
+    /* margins between columns and rows */
     /* grid-auto-rows: minmax(100px, auto); */
 
 }
 
 .gridBase  div {
+    /* grid-template-rows: 1fr 3fr; */
     /* display: grid; */
     /* background: darkslategray; */
     padding: 5px; 
@@ -30,34 +32,89 @@ body {
 /* board nested in board gridbase */
 .board   {
     /* background: red; */
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-gap: 25px; 
+    /* display: grid; */
+    /* grid-template-rows: 1fr; */
+    /* grid-gap: 25px;  */
     /* margin space around container */
 }
 
 
 
 
+
+/* /////////////// */
 /* thread nested in thread list */
 
-.gridThreadList  {
+.gridThread   {
     display: grid;
-    grid-template-columns: 2fr 10fr 3fr; /* size of columns from left to right */
+    grid-template-columns: 3fr 10fr 3fr; /* size of columns from left to right */
+    grid-gap: 20px; 
+    /* margins between columns and rows */
+    /* grid-auto-rows: minmax(100px, auto); */
+
+}
+
+.gridThread  div {
+    padding: 5px; 
+}
+
+/* threads nested in gridThread */
+.discussionList   {
+    background: yellow;
+    grid-template-rows: 1fr;
+    /* grid-gap: 25px;  */
+    /* margin space around container */
+}
+
+
+
+
+
+
+
+/* ///////////////// */
+/* COMING SOON: comment nested in comment  */
+.gridThread   {
+    display: grid;
+    grid-template-columns: 3fr 10fr 3fr; /* size of columns from left to right */
+    grid-gap: 20px; 
+    /* margins between columns and rows */
+    /* grid-auto-rows: minmax(100px, auto); */
+
+}
+
+.gridThread  div {
+    padding: 5px; 
+}
+
+/* threads nested in gridThread */
+.discussionList   {
+    background: yellow;
+    grid-template-rows: 1fr;
+    /* grid-gap: 25px;  */
+    /* margin space around container */
+}
+
+
+
+
+
+/* ///////////////////////// */
+.NOT_IN_USE_gridThreadList  {
+    display: grid;
+    grid-template-columns: 2fr 10fr 3fr; 
+    /* size of columns from left to right */
     grid-template-rows: 1fr 5fr 3fr;
-    grid-column-gap: 25px; /* margins between columns and rows */
+    grid-column-gap: 25px; 
+    /* margins between columns and rows */
     /* grid-auto-rows: minmax(100px, auto); */
     padding-top: 50px;
     grid-row-gap: 30px;
 }
 
-.gridThread  div {
+/* .gridThread  div {
     padding: 5px;
-}
-
-.gridThread {
-    margin: 2px 5px; /* FIX GRID ORDERING TO REMOVE THIS MARGIN */
-}
+} */
 
 
 
@@ -80,6 +137,15 @@ body {
     padding: 5px 10px;
     /* margin: 0 5px; */
 }
+
+
+
+
+
+
+
+
+
 
 
 /* ERROR GRID */
@@ -216,6 +282,14 @@ li a:hover {
 }
 
 
+
+
+
+
+
+
+
+
 /***** HEADER *****/
 
 .instructions {
@@ -232,6 +306,12 @@ li a:hover {
     font-weight: 700;
     /* padding-left: 100px; */
 }
+
+
+
+
+
+
 
 
 /***** NAV SIDEBAR *****/
@@ -382,11 +462,9 @@ form {
 
 
 
-/***** MAIN BOARD HOME *****/
 
-/* .board   {
-    background: red;
-} */
+
+
 
 /***** SECTION LIST DISPLAY *****/
 
@@ -402,11 +480,11 @@ form {
 
 /***** THREAD LIST DISPLAY *****/
 
-.discussionList {
+/* .discussionList {
     background: yellow;
-}
+} */
 
-.threadButton {
+/* .threadButton {
     background: pink;
     float:right;
     margin: 10px;
@@ -415,12 +493,17 @@ form {
     border-style: solid;
     border-width: 3px;
 
-}
+} */
 
 #btn-thread {
     padding: 0 18px;
     font-size: 18px;
     text-decoration: none;
+
+    background: pink;
+    border-style: solid;
+    border-width: 3px;
+
 }
 
 .threadButton:hover {
@@ -467,6 +550,12 @@ form {
     background: plum;
 }
 
+/***** COMMENT LIST DISPLAY *****/
+
+.commentList    {
+    background: palegreen;
+}
+
 textarea {
     width: 400px;
     height: 150px;
@@ -486,12 +575,6 @@ textarea {
       float: right;
       margin-right: 30px;
   }
-
-/***** COMMENT LIST DISPLAY *****/
-
-.commentList    {
-    background: palegreen;
-}
 
 /***** COMMENT ITEM DISPLAY *****/
 
