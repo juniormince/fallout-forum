@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Link
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import Nav from '../../components/Nav/Nav';
@@ -15,7 +10,6 @@ import { USER_ACTIONS } from '../../redux/actions/userActions';
 import '../../styles/main.css';
 
 //routing
-import SectionView from '../SectionView/SectionView';
 import DiscussionItem from '../DiscussionItem/DiscussionItem';
 
 const mapStateToProps = state => ({
@@ -82,7 +76,7 @@ class DiscussionList extends Component {
       // <div className="gridThreadList">
       <div className="gridThread">
         <Nav />
-        { content }
+        {content}
       </div>
     );
   }

@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-    BrowserRouter as Router,
-    Route,
-    Redirect,
-    Link
-} from 'react-router-dom';
 import axios from 'axios';
 
 import Nav from '../../components/Nav/Nav';
@@ -14,9 +8,6 @@ import { USER_ACTIONS } from '../../redux/actions/userActions';
 //styling
 import '../../styles/main.css';
 
-//routing
-import SectionView from '../SectionView/SectionView';
-import DiscussionItem from '../DiscussionItem/DiscussionItem';
 
 const mapStateToProps = state => ({
     user: state.user,
@@ -27,8 +18,10 @@ class newThread extends Component {
         super(props);
 
         this.state = {
-            value: '',
-            // newThread: 
+            newThread: {
+                title: '',
+                body: '',
+            }
         };
     }
 
@@ -46,8 +39,13 @@ class newThread extends Component {
 
 
     // new thread data 
-    handleChange = (event) => {
-        this.setState({ value: event.target.value });
+    handleChange = propertyName => event => {
+        this.setState({
+            profile: {
+                ...this.state.newThread,
+                [propertyName]: event.target.value,
+            }
+        });
         console.log(event.target.value);
     }
 
@@ -55,7 +53,7 @@ class newThread extends Component {
         event.preventDefault();
 
         //POST REQ
-        //addThread();
+        // this.addThread();
 
         this.setState({
             value: ''
@@ -64,18 +62,18 @@ class newThread extends Component {
     }
 
 
-     //     addThread = () => {
+    // addThread = () => {
     //     axios.post('/api/addthread')
-    //       .then((response) => {
-    //         console.log(response.data);
-    //         this.setState({
-    //           newThread: response.data,
-    //         });
-    //       })
-    //       .catch((error) => {
-    //         console.log('error on get: ', error);
-    //       })
-    //   };
+    //         .then((response) => {
+    //             console.log(response.data);
+    //             this.setState({
+    //                 newThread: response.data,
+    //             });
+    //         })
+    //         .catch((error) => {
+    //             console.log('error on get: ', error);
+    //         })
+    // };
 
     render() {
         let content = null;
@@ -86,11 +84,11 @@ class newThread extends Component {
                 <form id="newThreadForm" onSubmit={this.handleSubmit}>
                     <label>
                         <div id="newTitle">
-                            Title: 
+                            Title:
                         </div>
-                        <input id="newThreadTitle" type="text" onChange={this.handleChange} />
+                        <input id="newThreadTitle" type="text" onChange={this.handleChange('title')} />
                         <p />
-                        <div id="newThreadBody"><textarea value={this.state.value} onChange={this.handleChange} /></div>
+                        <div id="newThreadBody"><textarea value={this.state.value} onChange={this.handleChange('body')} /></div>
                     </label>
 
                     <input id="threadAdd" type="submit" value="Submit" />

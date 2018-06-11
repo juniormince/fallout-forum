@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
-  Link,
-  Route
+  Link
 } from 'react-router-dom';
 //icon pack here?
 
@@ -49,7 +47,7 @@ class Nav extends Component {
             overlayClassName={"sidenav"}
             width={350}
             onStateChange={this.isMenuOpen}
-            customBurgerIcon={<img src="https://www.freeiconspng.com/uploads/fallout-4-icon-6.png" />}
+            customBurgerIcon={<img src="https://www.freeiconspng.com/uploads/fallout-4-icon-6.png" alt="nav icon"/>}
           >
             <Link id="contact" className="menu-item" to="/board">Home</Link>
             <Link id="contact" className="menu-item" to="/profile">Profile Page</Link>

@@ -2,8 +2,6 @@ import React from 'react';
 import '../../styles/main.css';
 import {
   BrowserRouter as Router,
-  Route,
-  Redirect
 } from 'react-router-dom';
 
 const Header = ({ title }) => (

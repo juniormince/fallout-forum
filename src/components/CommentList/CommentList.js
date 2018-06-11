@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-    BrowserRouter as Router,
-    Route,
-    Redirect,
-    Link
-} from 'react-router-dom';
 import axios from 'axios';
 
 import Nav from '../../components/Nav/Nav';
@@ -24,8 +18,8 @@ class CommentList extends Component {
         super(props);
 
         this.state = {
-            value: 'good luck sayin somethin bucko',
             commentList: [],
+            reply: '',
         };
     }
 
@@ -57,18 +51,26 @@ class CommentList extends Component {
             })
     };
 
+
     // for reply/textarea
     handleChange = (event) => {
         this.setState({ value: event.target.value });
+        console.log(event.target.value);
     }
 
-    handleSubmit = (event) => {
-        alert('fyi you wrote: ' + this.state.value);
+    addReply = (event) => {
         event.preventDefault();
-
+        axios.post('/api/newReply', this.state.reply)
+        .then(response => {
+            console.log(response);
+        }).catch(error => {
+            console.log(error);
+            alert(error);
+        })
+        // alert('fyi you wrote: ' + this.state.value);
         this.setState({
             value: 'anything else?',
-          });
+        });
     }
 
 
@@ -77,31 +79,32 @@ class CommentList extends Component {
 
         if (this.props.user.userName) {
             content = (
-                    <div className="commentList">
+                <div className="commentList">
 
-                        <div>
-                            {/* <pre>{JSON.stringify(this.state.commentList)}</pre> */}
-                            {this.state.commentList.map(comment =>
-                                <CommentItem key={comment.id}
-                                    comment={comment} />
-                                //change comment.id to just {comment, i} ??
-                            )}
-                        </div>
+                    <div>
+                        {/* <pre>{JSON.stringify(this.state.commentList)}</pre> */}
+                        {this.state.commentList.map(comment =>
+                            <CommentItem key={comment.id}
+                                comment={comment} />
+                            //change comment.id to just {comment, i} ??
+                        )}
+                    </div>
 
-                        <form onSubmit={this.handleSubmit}>
-                            <label>
-                                Add Reply:<p />
-                                <span id="theBox"><textarea value={this.state.value} onChange={this.handleChange} /></span>
-                            </label>
-                            <input id="addReply" type="submit" value="Submit" />
-                        </form>
+                    <form onSubmit={this.addReply}>
+                        <label>
+                            Add Reply:<p />
+                            <span id="theBox">
+                                <textarea value={this.state.value} onChange={this.handleChange} /></span>
+                        </label>
+                        <input id="addReply" type="submit" value="Submit" />
+                    </form>
                 </div>
             );
         }
 
         return (
             <div className="gridCommentList">
-            <Nav />
+                <Nav />
                 {content}
             </div>
         );

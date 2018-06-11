@@ -3,7 +3,10 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 
-// GET profile [DONE]
+// reorganize route list after completed
+
+
+/// GET profile [DONE]
 router.get('/profile/:id', (req, res) => {
     console.log('GET all route for user', req.params.id);
     if (req.isAuthenticated()) 
@@ -22,7 +25,45 @@ router.get('/profile/:id', (req, res) => {
     }
 });
 
-//GET profile settings
+////GET topics [DONE]
+router.get('/topics', (req, res) => {
+    console.log('GET all route for TOPIC');
+    if (req.isAuthenticated()) {
+        let queryText = `SELECT * FROM "topic"
+                        ORDER BY "topic"."id" ASC;`;
+
+        pool.query(queryText)
+        .then((result) => {
+            res.send(result.rows);
+        }).catch((error) => {
+            console.log('error on topic GET: ', error);
+            res.sendStatus(500);
+        })
+    } else {
+        res.sendStatus(403);
+    }
+});
+
+
+// ******** POST route template (new reply/comment)
+router.post('/newReply', (req, res) => {
+    if (req.isAuthenticated()) {
+        let queryText = `INSERT INTO "comment" ("reply", "person_id")
+                        VALUES ($1, $2)`;
+        pool.query(queryText, [req.body.reply, req.user.id])
+            .then((result) => {
+                res.sendStatus(201);
+            })
+            .catch((error) => {
+                res.sendStatus(500);
+                console.log('error on POST: ', error)
+            })
+    } else {
+        res.sendStatus(403);
+    }
+});
+
+// ******** GET profile settings
 router.get('/profile/:id', (req, res) => {
     console.log('GET all route for user', req.params.id);
     if (req.isAuthenticated()) 
@@ -41,7 +82,7 @@ router.get('/profile/:id', (req, res) => {
     }
 });
 
-//PUT edit profile settings
+// ******** PUT edit profile settings
 router.put('/:id', (req, res) => {
     console.log('PUT item route');
     if (req.isAuthenticated() && req.params.id === req.user.id) {
@@ -64,36 +105,8 @@ router.put('/:id', (req, res) => {
 });
 
 
+// ******** GET threads by id TEST
 
-
-
-
-
-/**
- * GET topics 
- */
-router.get('/topics', (req, res) => {
-    console.log('GET all route for TOPIC');
-    if (req.isAuthenticated()) {
-        let queryText = `SELECT * FROM "topic"
-                        ORDER BY "topic"."id" ASC;`;
-
-        pool.query(queryText)
-        .then((result) => {
-            res.send(result.rows);
-        }).catch((error) => {
-            console.log('error on topic GET: ', error);
-            res.sendStatus(500);
-        })
-    } else {
-        res.sendStatus(403);
-    }
-});
-
-
-/**
- * GET threads TEST
- */
 // router.get('/threads', (req, res) => {
 //     console.log('GET all route for thread');
 //     if (req.isAuthenticated() 
@@ -122,12 +135,7 @@ router.get('/topics', (req, res) => {
 // });
 
 
-
-
-
-/**
- * GET threads TEST
- */
+// ******** GET threads TEST
 router.get('/threads', (req, res) => {
     console.log('GET all route for thread');
     if (req.isAuthenticated() 
@@ -149,9 +157,8 @@ router.get('/threads', (req, res) => {
     }
 });
 
-/**
- * GET comments TEST (all)
- */
+
+// ******** GET comments TEST (all)
 router.get('/comments', (req, res) => {
     console.log('GET all route for comments');
     if (req.isAuthenticated()) {
@@ -170,9 +177,8 @@ router.get('/comments', (req, res) => {
     }
 });
 
-/**
- * GET comments TEST (by users)
- */
+
+/// ******** GET comments TEST (by users)
 // router.get('/comments', (req, res) => {
 //     console.log('GET all route for comments');
 //     if (req.isAuthenticated() ) {
@@ -198,7 +204,7 @@ router.get('/comments', (req, res) => {
 
 
 
-// GET list of threads by topic id
+// ******** GET list of threads by topic id
 // router.get('/threads', (req, res) => {
 //     console.log('GET all threads by topic id');
 //     if(req.isAuthenticated()) {
@@ -223,32 +229,31 @@ router.get('/comments', (req, res) => {
 // });
 
 
+// ******** POST route template (new thread)
+// router.post('/addthread', (req, res) => {
+//     if (req.isAuthenticated()) {
+//         let queryText = `INSERT INTO "comment" ("reply", "thread_id", "person_id")
+//                         VALUES ($1, $2, $3)`;
+//         pool.query(queryText, [req.body.reply, req.body.thread_id, req.user.id])
+//             .then((result) => {
+//                 res.sendStatus(201);
+//             })
+//             .catch((error) => {
+//                 res.sendStatus(500);
+//                 console.log('error on POST: ', error)
+//             })
+//     } else {
+//         res.sendStatus(403);
+//     }
+// });
 
 
-
-
-
-/**
- * POST route template (new thread)
- */
-router.post('/', (req, res) => {
-    if(req.isAuthenticated())   {
-
-    }
-    else    {
-        res.sendStatus(403);
-    }
-});
-
-
-/**
- * POST route template (new reply/comment)
- */
-router.post('/', (req, res) => {
+// ******** POST route template (new reply/comment)
+router.post('/newReply', (req, res) => {
     if (req.isAuthenticated()) {
-        let queryText = `INSERT INTO "comment" ("reply", "thread_id", "person_id")
-                        VALUES ($1, $2, $3)`;
-        pool.query(queryText, [req.body.reply, req.body.thread_id, req.user.id])
+        let queryText = `INSERT INTO "comment" ("reply", "person_id")
+                        VALUES ($1, $2)`;
+        pool.query(queryText, [req.body.reply, req.user.id])
             .then((result) => {
                 res.sendStatus(201);
             })
@@ -259,14 +264,6 @@ router.post('/', (req, res) => {
     } else {
         res.sendStatus(403);
     }
-});
-
-
-/**
- * PUT route template (edit profile settings)
- */
-router.put('/', (req, res) => {
-
 });
 
 

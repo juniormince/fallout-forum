@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
   Link
 } from 'react-router-dom';
 
-import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-
-import CommentItem from '../CommentItem/CommentItem';
 
 import '../../styles/main.css';
 
@@ -19,12 +13,12 @@ const mapStateToProps = state => ({
 });
 
 class DiscussionItem extends Component {
-  constructor(props) {
-    super(props);
-    // this.state = {
-    //   value: 'tell us how you really feel.'
-    // };
-  }
+  // constructor(props) {
+  //   super(props);
+  // this.state = {
+  //   value: 'tell us how you really feel.'
+  // };
+  // }
 
 
 
@@ -57,7 +51,7 @@ class DiscussionItem extends Component {
         <div className="discussionItem">
           <Link to="/discussion"><h2>{this.props.thread.title} </h2></Link>
           <span className="container">
-          there would be comments by users here
+            there would be comments by users here
                     {/* {this.props.thread.date} */}
           </span>
         </div>
