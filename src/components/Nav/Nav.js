@@ -53,6 +53,7 @@ class Nav extends Component {
           >
             <Link id="contact" className="menu-item" to="/board">Home</Link>
             <Link id="contact" className="menu-item" to="/profile">Profile Page</Link>
+            {/* <Link id="contact" className="menu-item" to={`/profile/${user.id}`}>Profile Page</Link> //with imported USER_ACTIONS ?? */}
             <Link id="about" className="menu-item" to="/user">Control Panel</Link>
 
             {/* <a onClick={this.showSettings} className="menu-item--small" href="">Settings</a> */}
