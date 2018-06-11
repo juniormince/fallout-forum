@@ -67,8 +67,8 @@ class DiscussionList extends Component {
     if (this.props.user.userName) {
       content = (
         <div className="discussionList">
-          {/* <div className="threadButton"><Link to="/newthread" id="btn-thread">new thread</Link></div> */}
-          {/* ^^ AHAHA GET RID OF THESE ^^ */}
+          <div className="threadButton"><Link to="/newthread" id="btn-thread">new thread</Link></div>
+          {/* <pre>{JSON.stringify()}</pre> */}
           {this.state.threadList.map(thread =>
             <DiscussionItem key={thread.id}
               thread={thread} />

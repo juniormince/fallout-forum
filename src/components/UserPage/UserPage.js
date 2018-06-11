@@ -13,6 +13,21 @@ const mapStateToProps = state => ({
 });
 
 class UserPage extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      profile: {
+        alias: '',
+        location: '',
+        timezone: '',
+        contact: '',
+        img: '',
+      }
+    }
+  }
+
+
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
   }
@@ -28,6 +43,39 @@ class UserPage extends Component {
     // this.props.history.push('home');
   }
 
+
+
+  handleChange = propertyName => event => {
+    this.setState({
+      profile: {
+        ...this.state.saveProfile,
+        [propertyName]: event.target.value,
+      }
+    });
+  }
+
+  saveProfile = event => {
+    event.preventDefault();
+    // axios.post('/api/settings', this.state.profile).then(response => {
+    //     console.log(response);
+    // }).catch(error => {
+    //     console.log(error);
+    // })
+    this.setState({
+      profile: {
+        alias: '',
+        location: '',
+        timezone: '',
+        contact: '',
+        img: '',
+      }
+    });
+  }
+
+
+
+
+
   render() {
     let content = null;
 
@@ -37,24 +85,39 @@ class UserPage extends Component {
           <h1
             id="welcome"
           >
-          coming soon: the profile settings page
+            coming soon: the profile settings page
             {/* Welcome, { this.props.user.userName }! */}
           </h1>
-          the ability to edit your profile info<br/>
+          the ability to edit your profile info<br />
           will happen here
+          <br />
+          <form onSubmit={this.saveProfile}>
+            alias: <input className="input" onChange={this.handleChange('alias')} value={this.state.profile.alias} placeholder='alias (get and place here by ID?)' />
+            <br />
+            location: <input className="input" onChange={this.handleChange('location')} value={this.state.profile.location} placeholder='location' />
+            <br />
+            timezone: <input className="input" onChange={this.handleChange('timezone')} value={this.state.profile.timezone} placeholder='timezone' />
+            <br />
+            contact: <input className="input" onChange={this.handleChange('contact')} value={this.state.profile.contact} placeholder='contact' />
+            <br />
+            image url: <input className="input" onChange={this.handleChange('img')} value={this.state.profile.img} placeholder='img' />
+            <br />
+            <input className="button" type="submit" value="SAVE" />
+          </form>
+
           <button
             onClick={this.logout}
           >
             Log Out
           </button>
-        </div>
+        </div >
       );
     }
 
     return (
       <div className="gridSettings">
         <Nav />
-        { content }
+        {content}
       </div>
     );
   }

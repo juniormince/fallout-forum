@@ -29,14 +29,14 @@ body {
 }
 
 
-/* board nested in board gridbase */
-.board   {
+/* DELETE */
+/* .board   { */
     /* background: red; */
     /* display: grid; */
     /* grid-template-rows: 1fr; */
     /* grid-gap: 25px;  */
     /* margin space around container */
-}
+/* } */
 
 
 
@@ -502,7 +502,7 @@ form {
 
     background: pink;
     border-style: solid;
-    border-width: 3px;
+    border-width: 2px;
 
 }
 
