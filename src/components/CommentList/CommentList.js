@@ -35,11 +35,10 @@ class CommentList extends Component {
         }
     }
 
-
-
-
+    //get comments from discussion
     getComments = () => {
-        axios.get('/api/comments')
+        console.log('this.props.match', this.props.match)
+        axios.get(`/api/comments/${this.props.match.params.id}`)
             .then((response) => {
                 console.log(response.data);
                 this.setState({
@@ -52,26 +51,27 @@ class CommentList extends Component {
     };
 
 
-    // for reply/textarea
+    // for textarea reply
     handleChange = (event) => {
         this.setState({ value: event.target.value });
         console.log(event.target.value);
     }
 
-    addReply = (event) => {
-        event.preventDefault();
-        axios.post('/api/newReply', this.state.reply)
-        .then(response => {
-            console.log(response);
-        }).catch(error => {
-            console.log(error);
-            alert(error);
-        })
-        // alert('fyi you wrote: ' + this.state.value);
-        this.setState({
-            value: 'anything else?',
-        });
-    }
+    //getting a 500 atm
+    // addReply = (event) => {
+    //     event.preventDefault();
+    //     axios.post('/api/newReply', this.state.reply)
+    //         .then(response => {
+    //             console.log(response);
+    //         }).catch(error => {
+    //             console.log(error);
+    //             alert(error);
+    //         })
+    //     // alert('fyi you wrote: ' + this.state.value);
+    //     this.setState({
+    //         value: 'anything else?',
+    //     });
+    // }
 
 
     render() {

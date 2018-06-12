@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// import axios from 'axios';
 
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
@@ -21,22 +22,38 @@ class CommentItem extends Component {
     }
   }
 
+
+  //......UHHHHHHHH
+  // editComment = () => {
+  //   axios.put('/api/editComment', this.props.comment.reply)
+  // }
+
+
+
+
+
+
+
+
+
+
   render() {
     let content = null;
 
     if (this.props.user.userName) {
       content = (
         <div>
-          <div className="mini-profile">
+          <span className="mini-profile">
               {/* MAKE MINI PROFILE COMPONENT */}
-              <p>{this.props.comment.person_id}</p>
+              <img src={this.props.comment.profile_img} width="100px"/>
+              <p>username = {this.props.comment.username}</p>
               <p/>
-              username eventually (JOIN get)
-            </div>
+              add username link to profile!
+            </span>
 
-          <div className="comment">
-            <p>{this.props.comment.reply} -breee</p>
-          </div>
+          <span className="comment">
+            <p>{this.props.comment.reply}</p>
+          </span>
 
         </div>
       );

@@ -32,7 +32,7 @@ class DiscussionList extends Component {
 
   componentDidUpdate() {
     if (!this.props.user.isLoading && this.props.user.userName === null) {
-      this.props.history.push('home');
+      // this.props.history.push('home'); //??????? infinite looping??
       //change to forbidden
     }
   }
@@ -41,7 +41,8 @@ class DiscussionList extends Component {
 
 
   getThreads = () => {
-    axios.get('/api/threads')
+    console.log('this.props.match', this.props.match)
+    axios.get(`/api/threads/${this.props.match.params.id}`)
       .then((response) => {
         console.log(response.data);
         this.setState({
@@ -61,8 +62,11 @@ class DiscussionList extends Component {
     if (this.props.user.userName) {
       content = (
         <div className="discussionList">
+        
           <div className="threadButton"><Link to="/newthread" id="btn-thread">new thread</Link></div>
+
           {/* <pre>{JSON.stringify()}</pre> */}
+
           {this.state.threadList.map(thread =>
             <DiscussionItem key={thread.id}
               thread={thread} />
