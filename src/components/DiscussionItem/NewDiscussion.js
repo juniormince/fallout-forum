@@ -41,7 +41,7 @@ class newThread extends Component {
     // new thread data 
     handleChange = propertyName => event => {
         this.setState({
-            profile: {
+            newThread: {
                 ...this.state.newThread,
                 [propertyName]: event.target.value,
             }
@@ -53,34 +53,37 @@ class newThread extends Component {
         event.preventDefault();
 
         //POST REQ
-        // this.addThread();
+        this.newThread();
 
         this.setState({
             value: ''
         });
-        this.props.history.push('/threadlist');
+        this.props.history.push('/threadlist/:id');
     }
 
 
-    // addThread = () => {
-    //     axios.post('/api/addthread')
-    //         .then((response) => {
-    //             console.log(response.data);
-    //             this.setState({
-    //                 newThread: response.data,
-    //             });
-    //         })
-    //         .catch((error) => {
-    //             console.log('error on get: ', error);
-    //         })
-    // };
+    newThread = () => {
+        axios.post('/api/newThread', this.state.newThread)
+            .then((response) => {
+                console.log(response.data);
+                let commentObject = {reply: this.state.newThread.body, commentList: response.data} 
+                axios.post('/api/newReply', commentObject)
+                    .then((response) => {
+                        console.log(response.data);
+                    })
+                    .catch((error) => {
+                        console.log('error on get: ', error);
+                    })
+            })
+            .catch((error) => {
+                console.log('error on get: ', error);
+            })
+    };
 
     render() {
         let content = null;
-
         if (this.props.user.userName) {
             content = (
-
                 <form id="newThreadForm" onSubmit={this.handleSubmit}>
                     <label>
                         <div id="newTitle">

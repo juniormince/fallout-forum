@@ -20,8 +20,6 @@ class DiscussionItem extends Component {
   // };
   // }
 
-
-
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
   }
@@ -32,27 +30,22 @@ class DiscussionItem extends Component {
     }
   }
 
-
-  // for textarea
-  // handleChange = (event) => {
-  //   this.setState({ value: event.target.value });
-  // }
-
-  // handleSubmit= (event) => {
-  //   alert('fyi you wrote:' + this.state.value);
-  //   event.preventDefault();
-  // }
-
   render() {
     let content = null;
 
     if (this.props.user.userName) {
       content = (
         <div className="discussionItem">
-          <Link to="/discussion"><h2>{this.props.thread.title} </h2></Link>
+          <Link to={`/discussion/${this.props.thread.id}`}><h2>{this.props.thread.title} </h2></Link>
           <span className="container">
-            there would be comments by users here
+            latest reply by: user here (or started by: user ?)<br/>
+            date of latest reply here.
+            <p/>
+            thread id = {this.props.thread.id}
                     {/* {this.props.thread.date} */}
+
+
+                    {/* <pre>{JSON.stringify(this.props.thread.id)}</pre> */}
           </span>
         </div>
       );

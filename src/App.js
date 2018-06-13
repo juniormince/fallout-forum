@@ -53,7 +53,7 @@ const App = () => (
           component={Board}
         />
         <Route
-          path="/threadlist"
+          path="/threadlist/:id"
           component={DiscussionListView}
         />
         <Route
@@ -65,7 +65,7 @@ const App = () => (
           component={DiscussionItem}
         /> */}
         <Route
-          path="/discussion"
+          path="/discussion/:id"
           component={CommentList}
         />
 
