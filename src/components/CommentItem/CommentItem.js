@@ -34,9 +34,6 @@ class CommentItem extends Component {
 
 
 
-
-
-
   render() {
     let content = null;
 
