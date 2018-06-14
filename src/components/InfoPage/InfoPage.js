@@ -41,6 +41,7 @@ class InfoPage extends Component {
   }
 
   getProfile = (id) => {
+    // console.log('this.props.match', this.props.match)
     axios.get(`/api/profile/${id}`)
       .then((response) => {
         console.log(response.data);
