@@ -23,6 +23,14 @@ class CommentItem extends Component {
   }
 
 
+  handleEdit = () =>  {
+    console.log('edit button clicked');
+  }
+
+  handleDelete = () =>  {
+    console.log('delete button clicked');
+  }
+
   handleChange = (event) => {
     this.setState({ reply: event.target.value });
     console.log(event.target.value);
@@ -53,6 +61,14 @@ class CommentItem extends Component {
 
   render() {
     let content = null;
+      // let comment = this.state.editable ? 
+      // <textarea type='text' defaultValue={this.props.item.name} /> : <h3>{this.props.item.name}</h3>;
+      // // return (
+      //     <div>
+      //         {name}
+      //         {description}
+      //         <button onClick={this.props.handleDelete} >Delete</button>
+      //         <button onClick={this.handleEdit}> Edit </button>
 
     if (this.props.user.userName) {
       content = (
@@ -67,6 +83,10 @@ class CommentItem extends Component {
 
           <span className="comment">
             <p>{this.props.comment.reply}</p>
+            { this.props.user.userId === this.props.comment.person_id ? 
+              'ternary true!' : 'liar!' }
+            <button onClick={this.handleEdit}>Edit</button>
+            <button onClick={this.handleDelete}>Delete</button>
           </span>
 
         </div>
