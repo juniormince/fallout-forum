@@ -63,10 +63,6 @@ class InfoPage extends Component {
         <div className="container">
 
           <div className="profilepage">
-            {/* Profile Page
-            <br/>
-            <br/>
-            <br/> */}
 
             {/* make a component for profile info */}
           <ul>

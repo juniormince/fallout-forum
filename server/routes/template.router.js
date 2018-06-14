@@ -132,7 +132,7 @@ router.post('/newThread', (req, res) => {
 });
 
 
-// GET profile
+// GET profile [DONE]
 router.get('/profile/:id', (req, res) => {
     console.log('GET all route for user', req.params.id);
     if (req.isAuthenticated()) {
@@ -173,10 +173,7 @@ router.put('/settings/:id', (req, res) => {
 
 });
 
-/**
- * DELETE route template (delete comments)
- * add another delete for delete discussions? /stretch or skip
- */
+// ******** DELETE route template (delete comments)
 router.delete('/deleteComment/:id', (req, res) => {
     console.log('DELETE comment route');
     if(req.isAuthenticated() && req.query.person_id == req.user.id) {

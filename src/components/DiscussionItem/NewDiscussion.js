@@ -58,7 +58,7 @@ class newThread extends Component {
         this.setState({
             value: ''
         });
-        this.props.history.push('/threadlist/:id');
+        this.props.history.push(`/threadlist/${this.props.match.params.id}`);
     }
 
 
@@ -66,7 +66,7 @@ class newThread extends Component {
         axios.post('/api/newThread', this.state.newThread)
             .then((response) => {
                 console.log(response.data);
-                let commentObject = {reply: this.state.newThread.body, commentList: response.data} 
+                let commentObject = { reply: this.state.newThread.body, commentList: response.data }
                 axios.post('/api/newReply', commentObject)
                     .then((response) => {
                         console.log(response.data);
