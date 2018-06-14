@@ -54,25 +54,15 @@ class UserPage extends Component {
     });
   }
 
+  //PUT REQUEST
   saveProfile = event => {
     event.preventDefault();
-    // axios.post('/api/settings', this.state.profile).then(response => {
+    // axios.put('/api/settings', this.state.profile).then(response => {
     //     console.log(response);
     // }).catch(error => {
     //     console.log(error);
     // })
-    this.setState({
-      profile: {
-        alias: '',
-        location: '',
-        timezone: '',
-        contact: '',
-        img: '',
-      }
-    });
   }
-
-
 
 
 

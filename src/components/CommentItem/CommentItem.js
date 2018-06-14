@@ -23,14 +23,31 @@ class CommentItem extends Component {
   }
 
 
-  //......UHHHHHHHH
-  // editComment = () => {
-  //   axios.put('/api/editComment', this.props.comment.reply)
-  // }
+  handleChange = (event) => {
+    this.setState({ reply: event.target.value });
+    console.log(event.target.value);
+}
+
+  editComment = event => {
+    event.preventDefault();
+    // axios.put('/api/editComment/:id', this.props.comment.reply)
+    // .then(response => {
+    //     console.log(response);
+    // }).catch(error => {
+    //     console.log(error);
+    // })
+  }
 
 
-
-
+  deleteComment = event => {
+    event.preventDefault();
+    // axios.delete('/api/deleteComment/:id', this.props.comment.reply)
+    // .then(response => {
+    //     console.log(response);
+    // }).catch(error => {
+    //     console.log(error);
+    // })
+  }
 
 
 
@@ -42,7 +59,7 @@ class CommentItem extends Component {
         <div>
           <span className="mini-profile">
               {/* MAKE MINI PROFILE COMPONENT */}
-              <img src={this.props.comment.profile_img} width="100px"/>
+              <img src={this.props.comment.profile_img} width="100px" alt="user avatar"/>
               <p>username = {this.props.comment.username}</p>
               <p/>
               add username link to profile!
