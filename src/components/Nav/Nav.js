@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import {
   Link
 } from 'react-router-dom';
+import { connect } from 'react-redux';
 //icon pack here?
+import { USER_ACTIONS } from '../../redux/actions/userActions';
 
 import { slide as Menu } from 'react-burger-menu';
 import '../../styles/main.css';
 
-
+const mapStateToProps = state => ({
+  user: state.user,
+});
 
 class Nav extends Component {
   constructor(props) {
@@ -50,7 +54,7 @@ class Nav extends Component {
             customBurgerIcon={<img src="https://www.freeiconspng.com/uploads/fallout-4-icon-6.png" alt="nav icon"/>}
           >
             <Link id="contact" className="menu-item" to="/board">Home</Link>
-            <Link id="contact" className="menu-item" to="/profile">Profile Page</Link>
+            <Link id="contact" className="menu-item" to={`/profile/${this.props.user.userId}`}>Profile Page</Link>
             {/* <Link id="contact" className="menu-item" to={`/profile/${user.id}`}>Profile Page</Link> //with imported USER_ACTIONS ?? */}
             <Link id="about" className="menu-item" to="/user">Control Panel</Link>
 
@@ -62,7 +66,7 @@ class Nav extends Component {
     );
   }
 }
-export default Nav;
+export default connect(mapStateToProps)(Nav);
 
 
 

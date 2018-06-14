@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 // import axios from 'axios';
 
 
@@ -25,6 +26,9 @@ class CommentItem extends Component {
 
   handleEdit = () =>  {
     console.log('edit button clicked');
+    this.setState({
+      editable: false,
+    })
   }
 
   handleDelete = () =>  {
@@ -76,7 +80,8 @@ class CommentItem extends Component {
           <span className="mini-profile">
               {/* MAKE MINI PROFILE COMPONENT */}
               <img src={this.props.comment.profile_img} width="100px" alt="user avatar"/>
-              <p>username = {this.props.comment.username}</p>
+              <p>username = <Link to={`/profile/${this.props.comment.person_id}`}> {this.props.comment.username}</Link>
+              </p>
               <p/>
               add username link to profile!
             </span>
@@ -84,9 +89,7 @@ class CommentItem extends Component {
           <span className="comment">
             <p>{this.props.comment.reply}</p>
             { this.props.user.userId === this.props.comment.person_id ? 
-              'ternary true!' : 'liar!' }
-            <button onClick={this.handleEdit}>Edit</button>
-            <button onClick={this.handleDelete}>Delete</button>
+              <span><button onClick={this.handleEdit}>Edit</button> <button onClick={this.handleDelete}>Delete</button></span> : 'liar!' }
           </span>
 
         </div>

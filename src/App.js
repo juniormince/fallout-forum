@@ -45,7 +45,7 @@ const App = () => (
           component={UserPage}
         />
         <Route
-          path="/profile"
+          path="/profile/:id"
           component={InfoPage}
         />
         <Route
