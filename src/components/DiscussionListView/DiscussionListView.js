@@ -70,6 +70,7 @@ class DiscussionList extends Component {
           {this.state.threadList.map(thread =>
             <DiscussionItem key={thread.id}
               thread={thread} />
+            //pass props to NewDiscussion??
           )}
         </div>
 

@@ -92,7 +92,7 @@ router.get('/comments/:id', (req, res) => {
     }
 });
 
-// ******** POST route template (new reply/comment)
+// POST route (new reply/comment) [DONE]
 router.post('/newReply', (req, res) => {
     if (req.isAuthenticated()) {
         console.log(req.body);
@@ -132,7 +132,7 @@ router.post('/newThread', (req, res) => {
 });
 
 
-// ******** GET profile settings
+// GET profile
 router.get('/profile/:id', (req, res) => {
     console.log('GET all route for user', req.params.id);
     if (req.isAuthenticated()) {
@@ -152,7 +152,7 @@ router.get('/profile/:id', (req, res) => {
 });
 
 // ******** PUT edit profile settings
-router.put('/:id', (req, res) => {
+router.put('/settings/:id', (req, res) => {
     console.log('PUT item route');
     if (req.isAuthenticated() && req.params.id === req.user.id) {
         let queryText = `UPDATE "person" SET "profile_alias" = $2, "profile_location" = $3, 
@@ -177,8 +177,21 @@ router.put('/:id', (req, res) => {
  * DELETE route template (delete comments)
  * add another delete for delete discussions? /stretch or skip
  */
-router.delete('/', (req, res) => {
-
+router.delete('/deleteComment/:id', (req, res) => {
+    console.log('DELETE comment route');
+    if(req.isAuthenticated() && req.query.person_id == req.user.id) {
+        let queryText = `DELETE FROM "comment" where "id" = $1;`;
+        pool.query(queryText, [req.query.id])
+        .then((result)  =>  {
+            res.sendStatus(200);
+        })
+        .catch((error)  =>  {
+            console.log('error on DELETE: ', error)
+            res.sendStatus(500);
+        })
+    } else{
+        res.sendStatus(403);
+    }
 });
 
 
