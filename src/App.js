@@ -45,7 +45,7 @@ const App = () => (
           component={UserPage}
         />
         <Route
-          path="/profile"
+          path="/profile/:id"
           component={InfoPage}
         />
         <Route
@@ -57,13 +57,9 @@ const App = () => (
           component={DiscussionListView}
         />
         <Route
-          path="/newthread"
+          path="/newthread/:id"
           component={NewDiscussion}
         />
-        {/* <Route
-          path="/threadtitle"
-          component={DiscussionItem}
-        /> */}
         <Route
           path="/discussion/:id"
           component={CommentList}

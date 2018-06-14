@@ -41,6 +41,7 @@ class InfoPage extends Component {
   }
 
   getProfile = (id) => {
+    // console.log('this.props.match', this.props.match)
     axios.get(`/api/profile/${id}`)
       .then((response) => {
         console.log(response.data);
@@ -62,10 +63,6 @@ class InfoPage extends Component {
         <div className="container">
 
           <div className="profilepage">
-            {/* Profile Page
-            <br/>
-            <br/>
-            <br/> */}
 
             {/* make a component for profile info */}
           <ul>
