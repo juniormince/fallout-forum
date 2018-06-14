@@ -66,7 +66,7 @@ router.get('/threads/:id', (req, res) => {
 
 // GET comments [DONE]
 router.get('/comments/:id', (req, res) => {
-    console.log('/threads with param:', req.params.id);
+    console.log('/comments with param:', req.params.id);
     console.log('GET all route for comments');
     if (req.isAuthenticated()) {
         let id = req.params.id;
@@ -115,10 +115,11 @@ router.post('/newReply', (req, res) => {
 // ******** POST route template (new thread)
 router.post('/newThread', (req, res) => {
     if (req.isAuthenticated()) {
-        let queryText = `INSERT INTO "thread" ("title", "person_id", "body")
-                        VALUES ($1, $2, $3)
+        console.log(req.body);
+        let queryText = `INSERT INTO "thread" ("title", "person_id", "body", "topic_id")
+                        VALUES ($1, $2, $3, $4)
                         RETURNING id AS thread_id`;
-        pool.query(queryText, [req.body.title, req.user.id, req.body.body])
+        pool.query(queryText, [req.body.newThread.title, req.user.id, req.body.newThread.body, req.body.topicId])
             .then((results) => {
                 res.send(results.rows);
             })
@@ -153,7 +154,7 @@ router.get('/profile/:id', (req, res) => {
 
 // ******** PUT edit profile settings
 router.put('/settings/:id', (req, res) => {
-    console.log('PUT item route');
+    console.log('PUT settings route');
     if (req.isAuthenticated() && req.params.id === req.user.id) {
         let queryText = `UPDATE "person" SET "profile_alias" = $2, "profile_location" = $3, 
                         "profile_timezone" = $4, "profile_contact" = $5, "profile_img" = $6
@@ -173,8 +174,29 @@ router.put('/settings/:id', (req, res) => {
 
 });
 
+router.put('/editComment', (req, res) => {
+    console.log('PUT editComment route');
+    console.log(req.body);
+
+    if (req.isAuthenticated()) {
+        let queryText = `UPDATE "comment" SET "reply" = $2
+                        WHERE "person_id" = $1`;
+        pool.query(queryText, [req.user.id, req.body.reply])
+            .then((result) => {
+                res.sendStatus(200)
+            })
+            .catch((error) => {
+                console.log('error on PUT: ', error)
+                res.sendStatus(500);
+            })
+    } else {
+        res.sendStatus(403);
+    }
+
+});
+
 // ******** DELETE route template (delete comments)
-router.delete('/deleteComment/:id', (req, res) => {
+router.delete('/deleteComment', (req, res) => {
     console.log('DELETE comment route');
     if(req.isAuthenticated() && req.query.person_id == req.user.id) {
         let queryText = `DELETE FROM "comment" where "id" = $1;`;

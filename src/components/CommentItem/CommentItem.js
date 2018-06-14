@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import axios from 'axios';
+import axios from 'axios';
 
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
@@ -37,21 +37,23 @@ class CommentItem extends Component {
 
 
   //EDIT COMMENTS
-  handleEdit = () => {
+  handleEdit = (comment) => {
     console.log('edit button clicked');
     this.setState({
       editable: !this.state.editable
     });
+    console.log(this.state.editable);
+    this.editComment(comment);
   }
 
-  editComment = event => {
-    event.preventDefault();
-    // axios.put('/api/editComment/:id', this.props.comment.reply)
-    // .then(response => {
-    //     console.log(response);
-    // }).catch(error => {
-    //     console.log(error);
-    // })
+  editComment = comment => {
+    console.log
+    axios.put('/api/editComment', comment)
+      .then(response => {
+        console.log(response);
+      }).catch(error => {
+        console.log(error);
+      })
   }
 
   //DELETE COMMENTS
@@ -61,12 +63,12 @@ class CommentItem extends Component {
 
   deleteComment = event => {
     event.preventDefault();
-    // axios.delete('/api/deleteComment/:id', this.props.comment.id)
-    // .then(response => {
-    //     console.log(response);
-    // }).catch(error => {
-    //     console.log(error);
-    // })
+    axios.delete('/api/deleteComment/', event)
+    .then(response => {
+        console.log(response);
+    }).catch(error => {
+        console.log(error);
+    })
   }
 
 
@@ -95,17 +97,17 @@ class CommentItem extends Component {
             </span>
 
           <span className="comment">
-            <p>{this.props.comment.reply}</p>
+            {/* <p>{this.props.comment.reply}</p> */}
             {this.props.user.userId === this.props.comment.person_id ?
               <span>
-                { this.state.editable ? <textarea></textarea> : 'not editable' }
-                <button onClick={this.handleEdit/*(this.props.comment.reply.id) */}>Edit</button>
+                {this.state.editable ? <textarea defaultValue={this.props.comment.reply}></textarea> : <p>{this.props.comment.reply}</p>}
+                <button onClick={() => this.handleEdit(this.props.comment)}>Edit</button>
                 <button onClick={this.handleDelete/*(this.props.comment.reply) ?? another ternary if its yours? open to textarea?*/}>Delete</button>
               </span> : 'no buttons for you'}
           </span>
+                {/* <pre>{JSON.stringify(this.props.comment.reply)}</pre> */}
 
 
-         
         </div>
       );
     }
