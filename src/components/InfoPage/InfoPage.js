@@ -70,14 +70,14 @@ class InfoPage extends Component {
                 <li key={prof.id}>
                 <h1>Profile Page</h1>
                 <img id="avatar" src={prof.profile_img} alt="profile avatar"/><br/>
-                 username: 
+                 <h3>username:</h3> 
                  {prof.username}<br/>
                   {/* {prof.profile_alias}<br/> */}
-                 location: 
+                 <h3>location:</h3>
                  {prof.profile_location}<br/>
-                 timezone: 
+                 <h3>timezone:</h3> 
                  {prof.profile_timezone}<br/>
-                 contact: 
+                 <h3>contact:</h3> 
                  {prof.profile_contact}
 
                 </li>

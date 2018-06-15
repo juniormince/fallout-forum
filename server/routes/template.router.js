@@ -179,9 +179,9 @@ router.put('/editComment', (req, res) => {
     console.log(req.body);
 
     if (req.isAuthenticated()) {
-        let queryText = `UPDATE "comment" SET "reply" = $2
-                        WHERE "person_id" = $1`;
-        pool.query(queryText, [req.user.id, req.body.reply])
+        let queryText = `UPDATE "comment" SET "reply" = $1
+                        WHERE "person_id" = $2 AND "id" = $3`;
+        pool.query(queryText, [req.body.reply, req.user.id, req.body.replyId])
             .then((result) => {
                 res.sendStatus(200)
             })
@@ -196,11 +196,13 @@ router.put('/editComment', (req, res) => {
 });
 
 // ******** DELETE route template (delete comments)
-router.delete('/deleteComment', (req, res) => {
-    console.log('DELETE comment route');
-    if(req.isAuthenticated() && req.query.person_id == req.user.id) {
-        let queryText = `DELETE FROM "comment" where "id" = $1;`;
-        pool.query(queryText, [req.query.id])
+router.delete('/deleteComment/:id', (req, res) => {
+    console.log('DELETE comment route', req.params.id);
+    if(req.isAuthenticated() ) {
+        let queryText = `DELETE FROM "comment" 
+                        WHERE "id" = $1 AND
+                        "person_id" = $2;`;
+        pool.query(queryText, [req.params.id, req.user.id])
         .then((result)  =>  {
             res.sendStatus(200);
         })
