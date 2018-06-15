@@ -17,6 +17,10 @@ class CommentItem extends Component {
     super(props);
     this.state = {
       editable: false,
+      newComment: {
+        reply: this.props.comment.reply,
+        replyId: this.props.comment.id
+      }
     };
   }
   componentDidMount() {
@@ -29,60 +33,62 @@ class CommentItem extends Component {
     }
   }
 
-  handleChange = (event) => {
-    this.setState({ reply: event.target.value });
+
+  handleChangeEdit = (event) => {
+    this.setState({
+      newComment: {
+        ...this.state.newComment,
+        reply: event.target.value,
+      }
+    });
     console.log(event.target.value);
   }
 
 
 
   //EDIT COMMENTS
-  handleEdit = (comment) => {
+  handleEditToggle = (comment) => {
     console.log('edit button clicked');
     this.setState({
-      editable: !this.state.editable
+      editable: !this.state.editable,
     });
+    console.log(this.state.editable);
+  }
+
+  handleEdit = (comment) => {
+    console.log('edit button clicked');
     console.log(this.state.editable);
     this.editComment(comment);
   }
 
   editComment = comment => {
     console.log
-    axios.put('/api/editComment', comment)
+    axios.put(`/api/editComment/`, comment)
       .then(response => {
         console.log(response);
+        this.props.getComments();
+        this.handleEditToggle();
       }).catch(error => {
         console.log(error);
       })
   }
 
-  //DELETE COMMENTS
-  handleDelete = () => {
-    console.log('delete button clicked');
-  }
 
-  deleteComment = event => {
-    event.preventDefault();
-    axios.delete('/api/deleteComment/', event)
-    .then(response => {
+  deleteComment = id => event => {
+    console.log('delete button clicked', id);
+    axios.delete(`/api/deleteComment/${id}`, id)
+      .then(response => {
         console.log(response);
-    }).catch(error => {
+        this.props.getComments();
+      }).catch(error => {
         console.log(error);
-    })
+      })
   }
 
 
 
   render() {
     let content = null;
-    // let comment = this.state.editable ? 
-    // <textarea type='text' defaultValue={this.props.comment.reply} /> : '' or {this.props.comment.reply} here?;
-    // // return (
-    //     <div>
-    //         {name}
-    //         {description}
-    //         <button onClick={this.props.handleDelete} >Delete</button>
-    //         <button onClick={this.handleEdit}> Edit </button>
 
     if (this.props.user.userName) {
       content = (
@@ -90,7 +96,9 @@ class CommentItem extends Component {
           <span className="mini-profile">
             {/* MAKE MINI PROFILE COMPONENT */}
             <img src={this.props.comment.profile_img} width="100px" alt="user avatar" />
-            <p>username = <Link to={`/profile/${this.props.comment.person_id}`}> {this.props.comment.username}</Link>
+            <p>
+              {/* username is */}
+              <Link to={`/profile/${this.props.comment.person_id}`}> {this.props.comment.username}</Link>
             </p>
             <p />
             add username link to profile!
@@ -100,12 +108,21 @@ class CommentItem extends Component {
             {/* <p>{this.props.comment.reply}</p> */}
             {this.props.user.userId === this.props.comment.person_id ?
               <span>
-                {this.state.editable ? <textarea defaultValue={this.props.comment.reply}></textarea> : <p>{this.props.comment.reply}</p>}
-                <button onClick={() => this.handleEdit(this.props.comment)}>Edit</button>
-                <button onClick={this.handleDelete/*(this.props.comment.reply) ?? another ternary if its yours? open to textarea?*/}>Delete</button>
+                {this.state.editable ?
+                  <span>
+                    <textarea defaultValue={this.props.comment.reply} onChange={this.handleChangeEdit}></textarea>
+                    <button onClick={() => this.handleEdit(this.state.newComment)}>Save</button>
+                    <button onClick={this.handleEditToggle}>Cancel</button>
+                  </span> :
+                  <span>
+                    <p>{this.props.comment.reply}</p>
+                    <button onClick={this.handleEditToggle}>Edit</button>
+                    <button onClick={this.deleteComment(this.props.comment.id)}>Delete</button>
+                  </span>
+                }
               </span> : 'no buttons for you'}
           </span>
-                {/* <pre>{JSON.stringify(this.props.comment.reply)}</pre> */}
+          {/* <pre>{JSON.stringify(this.props.comment.reply)}</pre> */}
 
 
         </div>
