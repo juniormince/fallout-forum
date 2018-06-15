@@ -17,6 +17,9 @@ class CommentItem extends Component {
     super(props);
     this.state = {
       editable: false,
+      newComment: {
+        reply: this.props.comment.reply,
+      }
     };
   }
   componentDidMount() {
@@ -29,26 +32,40 @@ class CommentItem extends Component {
     }
   }
 
-  handleChange = (event) => {
-    this.setState({ reply: event.target.value });
+
+
+  handleChangeEdit = (event) => {
+    this.setState({ 
+      newComment: {
+        reply: event.target.value,
+      }
+    });
     console.log(event.target.value);
   }
 
 
 
   //EDIT COMMENTS
-  handleEdit = (comment) => {
+  handleEditToggle = (comment) => {
     console.log('edit button clicked');
     this.setState({
       editable: !this.state.editable
+      // comment:
+      // commentid:
     });
+    console.log(this.state.editable);
+    // this.editComment(comment);
+  }
+
+  handleEdit = (comment) => {
+    console.log('edit button clicked');
     console.log(this.state.editable);
     this.editComment(comment);
   }
 
   editComment = comment => {
     console.log
-    axios.put('/api/editComment', comment)
+    axios.put(`/api/editComment/`, comment)
       .then(response => {
         console.log(response);
       }).catch(error => {
@@ -75,6 +92,9 @@ class CommentItem extends Component {
 
   render() {
     let content = null;
+
+    // let EditSaveButton = {  editable: !this.state.editable ? "edit button" : "save button"}
+    
     // let comment = this.state.editable ? 
     // <textarea type='text' defaultValue={this.props.comment.reply} /> : '' or {this.props.comment.reply} here?;
     // // return (
@@ -100,8 +120,14 @@ class CommentItem extends Component {
             {/* <p>{this.props.comment.reply}</p> */}
             {this.props.user.userId === this.props.comment.person_id ?
               <span>
-                {this.state.editable ? <textarea defaultValue={this.props.comment.reply}></textarea> : <p>{this.props.comment.reply}</p>}
-                <button onClick={() => this.handleEdit(this.props.comment)}>Edit</button>
+                {this.state.editable ? 
+                <span>
+                  <form onSubmit={this.editComment}>
+                <textarea defaultValue={this.props.comment.reply} onChange={this.handleChangeEdit}></textarea> 
+                </form>
+                <input type="submit" onClick={() => this.handleEdit(this.state.newComment)} value="save"/></span> : 
+                <p>{this.props.comment.reply}</p>}
+                <button onClick={this.handleEditToggle}>Edit</button>
                 <button onClick={this.handleDelete/*(this.props.comment.reply) ?? another ternary if its yours? open to textarea?*/}>Delete</button>
               </span> : 'no buttons for you'}
           </span>

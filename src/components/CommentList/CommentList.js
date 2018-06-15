@@ -87,7 +87,7 @@ class CommentList extends Component {
                         {/* <pre>{JSON.stringify(this.state.commentList)}</pre> */}
                         {this.state.commentList.map(comment =>
                             <CommentItem key={comment.id}
-                                comment={comment} />
+                                comment={comment}/>
                             //change comment.id to just {comment, i} ??
                         )}
                     </div>

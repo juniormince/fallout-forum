@@ -27,7 +27,7 @@ import './styles/main.css';
 
 const App = () => (
   <div >
-    <Header className="header" title="FORUM APP EVENTUALLY - AN ASPIRING CLICKABLE HEADER" />
+    <Header className="header" title="FUTURE FORUM - THE FORUM OF THE FUTURE" />
     <Router>
       <Switch>
         <Redirect exact from="/" to="/board" />
