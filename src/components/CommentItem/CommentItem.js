@@ -63,7 +63,7 @@ class CommentItem extends Component {
 
   editComment = comment => {
     console.log
-    axios.put(`/api/editComment/`, comment)
+    axios.put(`/api/editComment`, comment)
       .then(response => {
         console.log(response);
         this.props.getComments();
@@ -97,7 +97,6 @@ class CommentItem extends Component {
             {/* MAKE MINI PROFILE COMPONENT */}
             <img src={this.props.comment.profile_img} width="100px" alt="user avatar" />
             <p>
-              {/* username is */}
               <Link to={`/profile/${this.props.comment.person_id}`}> {this.props.comment.username}</Link>
             </p>
             <p />
@@ -105,7 +104,6 @@ class CommentItem extends Component {
             </span>
 
           <span className="comment">
-            {/* <p>{this.props.comment.reply}</p> */}
             {this.props.user.userId === this.props.comment.person_id ?
               <span>
                 {this.state.editable ?
@@ -115,16 +113,15 @@ class CommentItem extends Component {
                     <button onClick={this.handleEditToggle}>Cancel</button>
                   </span> :
                   <span>
+                    <button className="commentButtons" onClick={this.handleEditToggle}>Edit</button>
+                    <button className="commentButtons" onClick={this.deleteComment(this.props.comment.id)}>Delete</button>
                     <p>{this.props.comment.reply}</p>
-                    <button onClick={this.handleEditToggle}>Edit</button>
-                    <button onClick={this.deleteComment(this.props.comment.id)}>Delete</button>
+                    {/* <button onClick={this.handleEditToggle}>Edit</button>
+                    <button onClick={this.deleteComment(this.props.comment.id)}>Delete</button> */}
                   </span>
                 }
-              </span> : 'no buttons for you'}
+              </span> : ''}
           </span>
-          {/* <pre>{JSON.stringify(this.props.comment.reply)}</pre> */}
-
-
         </div>
       );
     }
