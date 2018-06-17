@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  BrowserRouter as Router,
   Link
 } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -47,20 +48,20 @@ class Nav extends Component {
     return (
       <div>
         {/* <aside> */}
-          <Menu
-            overlayClassName={"sidenav"}
-            width={250}
-            onStateChange={this.isMenuOpen}
-            customBurgerIcon={<img src="https://www.freeiconspng.com/uploads/fallout-4-icon-6.png" alt="nav icon"/>}
-          >
-            <Link id="contact" className="menu-item" to="/board">Home</Link>
-            <Link id="contact" className="menu-item" to={`/profile/${this.props.user.userId}`}>Profile Page</Link>
-            {/* <Link id="contact" className="menu-item" to={`/profile/${user.id}`}>Profile Page</Link> //with imported USER_ACTIONS ?? */}
-            <Link id="about" className="menu-item" to="/user">Control Panel</Link>
+          <Router>
+            <Menu
+              overlayClassName={"sidenav"}
+              width={225}
+              onStateChange={this.isMenuOpen}
+              customBurgerIcon={<img src="https://www.freeiconspng.com/uploads/fallout-4-icon-6.png" alt="nav icon" />}
+            >
+              <Link id="contact" className="menu-item" to="/board">Home</Link>
+              <Link id="contact" className="menu-item" to={`/profile/${this.props.user.userId}`}>Profile Page</Link>
+              <Link id="about" className="menu-item" to="/user">Control Panel</Link>
 
-            {/* <a onClick={this.showSettings} className="menu-item--small" href="">Settings</a> */}
-
-          </Menu>
+              {/* <a onClick={this.showSettings} className="menu-item--small" href="">Settings</a> */}
+            </Menu>
+          </Router>
         {/* </aside> */}
       </div>
     );

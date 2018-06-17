@@ -94,30 +94,28 @@ class CommentItem extends Component {
       content = (
         <div>
           <span className="mini-profile">
-            {/* MAKE MINI PROFILE COMPONENT */}
-            <img src={this.props.comment.profile_img} width="100px" alt="user avatar" />
-            <p>
-              <Link to={`/profile/${this.props.comment.person_id}`}> {this.props.comment.username}</Link>
-            </p>
-            <p />
-            add username link to profile!
+            <img className="userAvatar" src={this.props.comment.profile_img} width="100px" alt="user avatar" />
+            <span className="miniInfo">
+              <span className="text"><Link to={`/profile/${this.props.comment.person_id}`}> {this.props.comment.username}</Link>
+              </span>
             </span>
+          </span>
 
           <span className="comment">
             {this.props.user.userId === this.props.comment.person_id ?
               <span>
                 {this.state.editable ?
                   <span>
+                    <button className="commentButtons" onClick={() => this.handleEdit(this.state.newComment)}>Save</button>
+                    <button className="commentButtons" onClick={this.handleEditToggle}>Cancel</button>
+                    <br />
                     <textarea defaultValue={this.props.comment.reply} onChange={this.handleChangeEdit}></textarea>
-                    <button onClick={() => this.handleEdit(this.state.newComment)}>Save</button>
-                    <button onClick={this.handleEditToggle}>Cancel</button>
+
                   </span> :
                   <span>
                     <button className="commentButtons" onClick={this.handleEditToggle}>Edit</button>
                     <button className="commentButtons" onClick={this.deleteComment(this.props.comment.id)}>Delete</button>
                     <p>{this.props.comment.reply}</p>
-                    {/* <button onClick={this.handleEditToggle}>Edit</button>
-                    <button onClick={this.deleteComment(this.props.comment.id)}>Delete</button> */}
                   </span>
                 }
               </span> : ''}
