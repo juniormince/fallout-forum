@@ -46,58 +46,21 @@ class Nav extends Component {
   render() {
     return (
       <div>
-        {/* <aside> */}
-          <Menu
-            overlayClassName={"sidenav"}
-            width={250}
-            onStateChange={this.isMenuOpen}
-            customBurgerIcon={<img src="https://www.freeiconspng.com/uploads/fallout-4-icon-6.png" alt="nav icon"/>}
-          >
-            <Link id="contact" className="menu-item" to="/board">Home</Link>
-            <Link id="contact" className="menu-item" to={`/profile/${this.props.user.userId}`}>Profile Page</Link>
-            {/* <Link id="contact" className="menu-item" to={`/profile/${user.id}`}>Profile Page</Link> //with imported USER_ACTIONS ?? */}
-            <Link id="about" className="menu-item" to="/user">Control Panel</Link>
+            <Menu
+              overlayClassName={"sidenav"}
+              width={225}
+              onStateChange={this.isMenuOpen}
+              customBurgerIcon={<img src="https://www.freeiconspng.com/uploads/fallout-4-icon-6.png" alt="nav icon" />}
+            >
+              <Link id="contact" className="menu-item" to="/board">Home</Link>
+              <Link id="contact" className="menu-item" to={`/profile/${this.props.user.userId}`}>Profile Page</Link>
+              <Link id="about" className="menu-item" to="/user">Control Panel</Link>
 
-            {/* <a onClick={this.showSettings} className="menu-item--small" href="">Settings</a> */}
-
-          </Menu>
-        {/* </aside> */}
+              {/* <a onClick={this.showSettings} className="menu-item--small" href="">Settings</a> */}
+            </Menu>
       </div>
     );
   }
 }
 export default connect(mapStateToProps)(Nav);
 
-
-
-
-// const Nav = () => (
-  // <div className="navbar">
-  //   <div>
-  //     <ul>
-  //       <li>
-  //         <Link to="/user">
-  //           Welcome (placeholder)
-  //         </Link>
-  //       </li>
-  //       <li>
-  //         <Link to="/board">
-  //           Home
-  //         </Link>
-  //       </li>
-  //       <li>
-  //         <Link to="/profile">
-  //           Profile Page
-  //         </Link>
-  //       </li>
-  //     </ul>
-  //   </div>
-  // </div>
-
-
-
-
-
-// );
-
-// export default Nav;
