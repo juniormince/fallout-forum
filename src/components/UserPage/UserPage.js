@@ -40,10 +40,8 @@ class UserPage extends Component {
 
   logout = () => {
     this.props.dispatch(triggerLogout());
-    // this.props.history.push('home');
+    this.props.history.push('home');
   }
-
-
 
   handleChange = propertyName => event => {
     this.setState({
@@ -54,15 +52,15 @@ class UserPage extends Component {
     });
   }
 
-  //PUT REQUEST
-  saveProfile = event => {
-    event.preventDefault();
-    // axios.put('/api/settings', this.state.profile).then(response => {
-    //     console.log(response);
-    // }).catch(error => {
-    //     console.log(error);
-    // })
-  }
+  //FUTURE PUT REQUEST (NEED GET REQ of ACTIVE USER)
+  // saveProfile = event => {
+  //   event.preventDefault();
+  //   axios.put('/api/settings', this.state.profile).then(response => {
+  //       console.log(response);
+  //   }).catch(error => {
+  //       console.log(error);
+  //   })
+  // }
 
 
 

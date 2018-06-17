@@ -60,32 +60,29 @@ class InfoPage extends Component {
 
     if (this.props.user.userName) {
       content = (
-        <div className="container">
-
           <div className="profilepage">
-
-            {/* make a component for profile info */}
-          <ul>
+          <h1>Profile Page</h1>
+          <div className="userInfo">
               {this.state.profile.map(prof =>
-                <li key={prof.id}>
-                <h1>Profile Page</h1>
+                <p key={prof.id}>
                 <img id="avatar" src={prof.profile_img} alt="profile avatar"/><br/>
-                 <h3>username:</h3> 
+                 <b>username:</b> 
                  {prof.username}<br/>
-                  {/* {prof.profile_alias}<br/> */}
-                 <h3>location:</h3>
+                 <b>alias:</b> 
+                  {prof.profile_alias}<br/>
+                 <b>location:</b>
                  {prof.profile_location}<br/>
-                 <h3>timezone:</h3> 
+                 <b>timezone:</b> 
                  {prof.profile_timezone}<br/>
-                 <h3>contact:</h3> 
+                 <b>contact:</b> 
                  {prof.profile_contact}
-
-                </li>
+dghsadgshajdsgh dsgahdjs adsgahjd saghdsad sagdhsjad sgahdjsadsa dgshaj dsa dgshaj
+                </p>
               )}
-            </ul>
+            </div>
 
 
-          </div>
+
 
           <button 
           id="btn-logout"

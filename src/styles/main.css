@@ -70,7 +70,7 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 li {
@@ -104,13 +104,13 @@ a{
 /***** HEADER *****/
 
 .instructions {
+    display: grid;
     background-color: #373a47;
     font-family: 'southern_aire_personal_use_Rg';
     padding: 20px;
     /* padding-bottom: 55px; */
     color: #ece7e7;
-    display: grid;
-    grid-template-columns: 3fr 6fr 1fr;
+    grid-template-columns: 4fr 4fr 3fr;
     grid-gap: 20px;
     text-transform: capitalize;
 }
@@ -121,7 +121,7 @@ a{
 }
 
 .instructions h2 {
-    font-size: 48px;
+    font-size: 36px;
     /* font-weight: 400; */
     /* text-transform: capitalize; */
     /* padding-left: 100px; */
@@ -151,7 +151,7 @@ a{
 }
 
 
-/* thread nested in thread list */
+/***** THREAD GRID *****/
 .gridThread   {
     display: grid;
     grid-template-columns: 3fr 10fr 3fr; /* size of columns from left to right */
@@ -232,8 +232,9 @@ a{
 
 .gridProfile   {
     display: grid;
-    grid-template-columns: 1.5fr 6fr 3fr; /* size of columns from left to right */
-    grid-gap: 20px; /* margins between columns and rows */
+    grid-template-columns: 3fr 6fr 3fr; /* size of columns from left to right */
+    /* grid-gap: 20px;  */
+    /* margins between columns and rows */
     /* grid-auto-rows: minmax(100px, auto); */
 
 }
@@ -241,14 +242,27 @@ a{
 .gridProfile  div {
     /* background: darkslategray; */
     padding: 5px;
-    margin-top: 25px;
+    /* display: grid;
+    grid-template-columns: 1fr; */
 }
+
+
+/* ////// using for ref DELETE LATER*/
+/* .gridThread   {
+    display: grid;
+    grid-template-columns: 3fr 10fr 3fr; 
+    grid-gap: 20px; 
+}
+
+.gridThread  div {
+    padding: 5px; 
+} */
 
 
 /* PROFILE SETTINGS GRID */
 .gridSettings   {
     display: grid;
-    grid-template-columns: 1.5fr 6fr 3fr; /* size of columns from left to right */
+    grid-template-columns: 3fr 6fr 3fr; /* size of columns from left to right */
     grid-gap: 20px; /* margins between columns and rows */
     /* grid-auto-rows: minmax(100px, auto); */
 
@@ -257,7 +271,6 @@ a{
 .gridSettings  div {
     /* background: darkslategray; */
     padding: 5px;
-    margin-top: 25px;
 }
 
 
@@ -342,7 +355,7 @@ a{
     left: 0;
     background-color: #111;
     overflow-x: hidden;
-    padding-top: 20px;
+    /* padding-top: 20px; */
 }
 
 .main {
@@ -381,6 +394,7 @@ form {
 
 .profilepage {
     background: grey;
+    margin-top: 5px;
 }
 
 #avatar {
@@ -397,6 +411,7 @@ form {
 
 .control {
     background: fuchsia;
+    margin-top: 5px;
 }
 
 /***** MINI-PROFILE DISPLAY *****/
