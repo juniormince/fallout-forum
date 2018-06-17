@@ -46,10 +46,10 @@ class Nav extends Component {
   render() {
     return (
       <div>
-        <aside>
+        {/* <aside> */}
           <Menu
             overlayClassName={"sidenav"}
-            width={350}
+            width={250}
             onStateChange={this.isMenuOpen}
             customBurgerIcon={<img src="https://www.freeiconspng.com/uploads/fallout-4-icon-6.png" alt="nav icon"/>}
           >
@@ -61,7 +61,7 @@ class Nav extends Component {
             {/* <a onClick={this.showSettings} className="menu-item--small" href="">Settings</a> */}
 
           </Menu>
-        </aside>
+        {/* </aside> */}
       </div>
     );
   }
