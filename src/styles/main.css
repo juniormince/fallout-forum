@@ -1,12 +1,138 @@
 /* the all powerful syling over all components imported to App.js */
 
+
+@font-face {
+    font-family: 'monofontoregular';
+    src: url('./monofonto-regular/monofonto-webfont.woff2') format('woff2'),
+         url('./monofonto-regular/monofonto-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'southern_aire_personal_use_Rg';
+    src: url('./southernAire/southernaire-webfont.woff2') format('woff2'),
+         url('./southernAire/southernaire-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+*   {
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'monofontoregular', 'Courier New', Courier;
     background: black;
+    text-transform: uppercase;
+}
+
+button:hover {
+    color: red;
+}
+
+
+input {
+    margin: 5px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    margin: 10px;
+}
+
+.message {
+    padding: 10px 0;
+}
+
+.message p {
+    margin-left: 10px;
+}
+
+.message:nth-child(odd) {
+     background-color: #eeeeee;
+}
+
+.message:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+.navbar {
+  background-color: #00acb0;
+  width: 100%;
+  border-radius: 0px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    padding-left: 280px;
+}
+
+li a {
+    display: block;
+    color: white;
+    /* text-align: center; */
+    padding: 14px 16px;
+    text-decoration: none;
+
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    text-decoration: none;
+    color: #eee;
+}
+
+a{
+    text-decoration: none;
 }
 
 
 
+
+
+
+/***** HEADER *****/
+
+.instructions {
+    background-color: #373a47;
+    font-family: 'southern_aire_personal_use_Rg';
+    padding: 20px;
+    /* padding-bottom: 55px; */
+    color: #ece7e7;
+    display: grid;
+    grid-template-columns: 3fr 6fr 1fr;
+    grid-gap: 20px;
+    text-transform: capitalize;
+}
+.instructions h1 {
+    font-size: 56px;
+    font-weight: 100;
+    /* padding-left: 100px; */
+}
+
+.instructions h2 {
+    font-size: 48px;
+    /* font-weight: 400; */
+    /* text-transform: capitalize; */
+    /* padding-left: 100px; */
+}
+
+
+
+
+
+
+/***** BOARD GRID *****/
 
 .gridBase   {
     display: grid;
@@ -24,27 +150,8 @@ body {
     padding: 5px; 
 }
 
-/* .gridBase  div:nth-child(odd) { */
-    /* background: #ddd; */
-/* } */
 
-
-/* DELETE */
-/* .board   { */
-    /* background: red; */
-    /* display: grid; */
-    /* grid-template-rows: 1fr; */
-    /* grid-gap: 25px;  */
-    /* margin space around container */
-/* } */
-
-
-
-
-
-/* /////////////// */
 /* thread nested in thread list */
-
 .gridThread   {
     display: grid;
     grid-template-columns: 3fr 10fr 3fr; /* size of columns from left to right */
@@ -65,56 +172,6 @@ body {
     /* grid-gap: 25px;  */
     /* margin space around container */
 }
-
-
-
-
-
-
-
-/* ///////////////// */
-/* COMING SOON: comment nested in comment  */
-.gridThread   {
-    display: grid;
-    grid-template-columns: 3fr 10fr 3fr; /* size of columns from left to right */
-    grid-gap: 20px; 
-    /* margins between columns and rows */
-    /* grid-auto-rows: minmax(100px, auto); */
-
-}
-
-.gridThread  div {
-    padding: 5px; 
-}
-
-/* threads nested in gridThread */
-.discussionList   {
-    background: yellow;
-    grid-template-rows: 1fr;
-    /* grid-gap: 25px;  */
-    /* margin space around container */
-}
-
-
-
-
-
-/* ///////////////////////// */
-.NOT_IN_USE_gridThreadList  {
-    display: grid;
-    grid-template-columns: 2fr 10fr 3fr; 
-    /* size of columns from left to right */
-    grid-template-rows: 1fr 5fr 3fr;
-    grid-column-gap: 25px; 
-    /* margins between columns and rows */
-    /* grid-auto-rows: minmax(100px, auto); */
-    padding-top: 50px;
-    grid-row-gap: 30px;
-}
-
-/* .gridThread  div {
-    padding: 5px;
-} */
 
 
 
@@ -122,11 +179,11 @@ body {
 
 .gridCommentList   {
     display: grid;
-    grid-template-columns: 2fr 10fr 1fr;
+    grid-template-columns: 3fr 10fr 3fr;
     /* grid-template-rows: 1fr; */
     grid-column-gap: 10px;
     /* grid-row-gap: 10px; */
-    padding-top: 50px;
+    /* padding-top: 50px; */
 }
 
 .gridComment  div {
@@ -137,6 +194,11 @@ body {
     padding: 5px 10px;
     /* margin: 0 5px; */
 }
+
+.commentButtons {
+    background: red;
+}
+
 
 
 
@@ -184,7 +246,6 @@ body {
 
 
 /* PROFILE SETTINGS GRID */
-
 .gridSettings   {
     display: grid;
     grid-template-columns: 1.5fr 6fr 3fr; /* size of columns from left to right */
@@ -198,120 +259,6 @@ body {
     padding: 5px;
     margin-top: 25px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ***** END TESTING ***** */
-
-
-
-
-
-
-
-
-
-input {
-    margin: 5px;
-    margin-bottom: 10px;
-}
-
-input[type="submit"] {
-    margin: 10px;
-}
-
-.message {
-    padding: 10px 0;
-}
-
-.message p {
-    margin-left: 10px;
-}
-
-.message:nth-child(odd) {
-     background-color: #eeeeee;
-}
-
-.message:nth-child(even) {
-    background-color: #f8f8f8;
-}
-
-.navbar {
-  background-color: #00acb0;
-  width: 100%;
-  border-radius: 0px;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-li {
-    /* float: left; */
-    padding-left: 280px;
-}
-
-li a {
-    display: block;
-    color: white;
-    /* text-align: center; */
-    padding: 14px 16px;
-    /* text-decoration: none; */
-
-}
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-    text-decoration: underline;
-    color: #eee;
-}
-
-
-
-
-
-
-
-
-
-
-/***** HEADER *****/
-
-.instructions {
-    background-color: #00acb0;
-    padding: 5px;
-    padding-bottom: 55px;
-    color: #ece7e7;
-    display: grid;
-    grid-template-columns: 3fr 6fr 1fr;
-    grid-gap: 20px;
-}
-.instructions h1 {
-    font-size: 24px;
-    font-weight: 700;
-    /* padding-left: 100px; */
-}
-
-
-
-
-
-
 
 
 /***** NAV SIDEBAR *****/
@@ -460,14 +407,7 @@ form {
 }
 
 
-
-
-
-
-
-
 /***** SECTION LIST DISPLAY *****/
-
 .sectionTopics   {
     background: lightskyblue;
 }

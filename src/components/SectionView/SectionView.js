@@ -65,7 +65,7 @@ class SectionView extends Component {
     }
 
     return (
-      <div>
+      <div >
         {content}
       </div>
     );

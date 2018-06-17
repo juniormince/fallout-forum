@@ -63,13 +63,11 @@ class DiscussionList extends Component {
       content = (
         <div className="discussionList">
         
-      <div className="threadButton"><Link to={`/newthread/${this.props.match.params.id}`} id="btn-thread">new thread</Link></div>
-          {/* <pre>{JSON.stringify(this.props.match)}</pre> */}
-
+      <div className="threadButton">
+      <Link to={`/newthread/${this.props.match.params.id}`} id="btn-thread">new thread</Link></div>
           {this.state.threadList.map(thread =>
             <DiscussionItem key={thread.id}
               thread={thread} />
-            //pass props to NewDiscussion??
           )}
         </div>
 

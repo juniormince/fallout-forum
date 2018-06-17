@@ -42,10 +42,6 @@ class DiscussionItem extends Component {
             date of latest reply here.
             <p/>
             thread id = {this.props.thread.id}
-                    {/* {this.props.thread.date} */}
-
-
-                    {/* <pre>{JSON.stringify(this.props.thread.id)}</pre> */}
           </span>
         </div>
       );
