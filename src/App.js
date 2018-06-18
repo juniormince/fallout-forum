@@ -24,7 +24,7 @@ import './styles/main.css';
 
 
 const App = () => (
-  <div className="AppBackground">
+  <div>
     <Header className="header" title="Welcome to Future Forum" />
     <Router>
       <Switch>

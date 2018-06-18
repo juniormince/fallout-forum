@@ -29,18 +29,16 @@ body {
     background: black;
     text-transform: uppercase;
     color: #35f78a;
-    margin:0;
-    overflow:hidden; /*FIX -- add scroll to app not body. breaks wave*/
-    padding:0;
+    overflow:hidden;
 }
+
+
 
 
 .landingPage  {
     animation:colorPulse 5s infinite ease-in-out;
-    /* box-shadow:0 0 5vmin 1vmin #000 inset; */
-    /* height:100vh; */
+    height:100vh;
     overflow:hidden;
-    /* padding:10vmin; */
     width:100vw;
 }
 
@@ -57,12 +55,12 @@ body {
 
 .landingPage:after {
     background-image:linear-gradient(transparent, transparent 3px, #222);
-    background-size:4px 4px;
+    background-size: 4px 4px;
     bottom:0;
     content:"";
     left:0;
     pointer-events:none;
-    position:absolute;
+    position: absolute;
     right:0;
     top:0;
     z-index:1;
@@ -109,11 +107,11 @@ input[type="submit"] {
 
 
 .landingPage    h1 {
-    overflow: hidden; /* Ensures the content is not revealed until the animation */
-    border-right: .15em solid #2fde7c; /* The typwriter cursor */
-    white-space: nowrap; /* Keeps the content on a single line */
-    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-    letter-spacing: .15em; /* Adjust as needed */
+    border-right: .30em solid #35f78a; /* cursor */
+    white-space: nowrap; 
+    margin: 0 auto; 
+    letter-spacing: .15em; 
+    overflow: hidden;
     animation: 
       typing 4s steps(30, end),
       blink-caret .5s step-end infinite;
@@ -126,7 +124,7 @@ input[type="submit"] {
 
 @keyframes blink-caret{
     from, to { border-color: transparent}
-    50% { border-color: #2fde7c}
+    50% { border-color: #35f78a}
 }
 
 input[type=text]    {
@@ -134,7 +132,7 @@ input[type=text]    {
     border: none;
     border-bottom: 2px solid #35f78a;
     color:#35f78a;
-    font-size: 14px;
+    font-size: 16px;
     width: 50%;
     outline: none;
 }
@@ -144,7 +142,7 @@ input[type=password]    {
     border: none;
     border-bottom: 2px solid #35f78a;
     color:#35f78a;
-    font-size: 14px;
+    font-size: 18px;
     width: 50%;
     outline: none;
 }
@@ -176,8 +174,6 @@ li {
 
 li a {
     display: block;
-    /* color: white; */
-    /* text-align: center; */
     padding: 14px 16px;
     text-decoration: none;
 
@@ -207,24 +203,40 @@ b   {
     background-color: #373a47;
     font-family: 'southern_aire_personal_use_Rg';
     padding: 20px;
-    /* padding-bottom: 55px; */
-    /* color: #ece7e7; */
-    grid-template-columns: 4fr 5fr 3fr;
+    padding-bottom: 25px;
+    grid-template-columns: 1fr 3fr;
     text-align: center;
     grid-gap: 20px;
     text-transform: capitalize;
+    background-image: url('https://ichef.bbci.co.uk/images/ic/976xn/p027dlpq.jpg');
 }
+
+.instructions div{
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+}
+
+
 .instructions h1 {
-    font-size: 56px;
-    font-weight: 100;
-    color: snow;
+    font-size: 72px;
+    font-weight: 400;
+    text-shadow: 2px 2px red;
+    color: yellow;
+    transform: rotate(-10deg);
     -webkit-transform: rotate(-10deg);
-    /* padding-left: 100px; */
+    padding-top: 20px;
+    padding-bottom:20px;
 }
 
 .instructions h2 {
-    font-size: 36px;
-    color: snow;
+    display: grid;
+    font-size: 60px;
+    font-weight: 100;
+    text-shadow: 2px 2px red;
+    text-indent: 300px;
+    color: rgb(251, 255, 0);
+    transform: rotate(-10deg);
     -webkit-transform: rotate(-10deg);
     /* font-weight: 400; */
     /* text-transform: capitalize; */
@@ -242,15 +254,11 @@ b   {
     display: grid;
     grid-template-columns: 3fr 10fr 3fr; /* size of columns from left to right */
     grid-gap: 20px; 
-    /* margins between columns and rows */
-    /* grid-auto-rows: minmax(100px, auto); */
-
+    /* margin-top: 5px;  */
+    /* overflow-y:auto;  */
 }
 
 .gridBase  div {
-    /* grid-template-rows: 1fr 3fr; */
-    /* display: grid; */
-    /* background: darkslategray; */
     padding: 5px; 
 }
 
@@ -260,9 +268,7 @@ b   {
     display: grid;
     grid-template-columns: 3fr 10fr 3fr; /* size of columns from left to right */
     grid-gap: 20px; 
-    /* margins between columns and rows */
-    /* grid-auto-rows: minmax(100px, auto); */
-
+    margin-top: 5px;
 }
 
 .gridThread  div {
@@ -284,16 +290,13 @@ b   {
 .gridCommentList   {
     display: grid;
     grid-template-columns: 3fr 10fr 3fr;
-    /* grid-template-rows: 1fr; */
     grid-column-gap: 10px;
-    /* grid-row-gap: 10px; */
-    /* padding-top: 50px; */
+    margin-top: 5px;
 }
 
 .gridComment  div {
     display: grid;
     grid-template-columns: 1fr 5fr;
-
     grid-column-gap: 10px;
     padding: 5px 10px;
     /* margin: 0 5px; */
@@ -357,7 +360,7 @@ b   {
     height: 50px;
     left: 50px;
     top: 50px;
-    box-shadow: 3px 3px 5px;
+    box-shadow: 3px 3px 5px black;
   }
 
   .bm-burger-button:hover {
@@ -366,47 +369,40 @@ b   {
     border-radius: 3px;
   }
   
-  /* Color/shape of burger icon bars */
-  .bm-burger-bars {
-    background: #373a47;
-  }
-  
   /* Position and sizing of clickable cross button */
   .bm-cross-button {
     height: 24px;
     width: 24px;
   }
   
-  /* Color/shape of close button cross */
+  /* color/shape of close button cross */
   .bm-cross {
-    background: #bdc3c7;
+    background: #35f78a;
   }
   
-  /* General sidebar styles */
+  /* general sidebar styles */
   .bm-menu {
-    background: #373a47;
-    padding: 2.5em 1.5em 0;
-    font-size: 1.15em;
+    background: #353535;
+    padding: 25px 25px;
+    font-size: 1.5em;
   }
   
-  /* Morph shape necessary with bubble or elastic */
-  .bm-morph-shape {
-    fill: #373a47;
-  }
-  
-  /* Wrapper for item list */
+  /* wrapper for item list */
   .bm-item-list {
-    color: #b8b7ad;
-    padding: 0.8em;
+    /* padding-top: 50px; */
+    color: #2e312b;
+    text-align: right;
   }
   
-  /* Individual item */
+  /* individual item */
   .bm-item {
-    display: inline-block;
+    padding-top: 20px;
+    padding-right: 10px;
   }
   
-  /* Styling of overlay */
-  .bm-overlay {
+  /* styling of overlay */
+  .bm-overlay.sidenav {
+    margin-top: -250px;
     background: rgba(0, 0, 0, 0.3);
   }
   
@@ -420,22 +416,15 @@ b   {
   }
 
   /* fixed empty block (placeholder space behind sidenav) */
-  .sidenav {
+  .bm-menu-wrap {
     height: 100%;
-    width: 260px;
+    width: 225px;
     position: fixed;
-    z-index: 1;
+    z-index: 0;
     top: 0;
     left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    /* padding-top: 20px; */
-}
-
-.main {
-    margin-left: 160px; /* Same as the width of the sidenav */
-    font-size: 28px; /* Increased text to enable scrolling */
-    padding: 0px 10px;
+    background-color: #353535;
+    /* overflow-x: hidden; */
 }
 
 
@@ -445,6 +434,7 @@ b   {
 
 /* (also in thread item display) */
 form {
+    background: rgba(54, 25, 25, .5);
     border-style: solid;
     width: 30%;
     height: 250px;
@@ -457,31 +447,22 @@ form {
 /* ^^ look above and pull down here ^^ */
 
 .registerAlert  {
-    background: white;
+    background: black;
+    text-align: center;
     display: grid;
-    grid-template-columns: 3fr 3fr;
+    grid-template-columns: 1fr;
 }
 
-.cancelRegister {
-    color: green;
-}
 
 /***** PROFILE PAGE DISPLAY *****/
 
 .gridProfile   {
     display: grid;
-    grid-template-columns: 3fr 6fr 3fr; /* size of columns from left to right */
-    /* grid-gap: 20px;  */
-    /* margins between columns and rows */
-    /* grid-auto-rows: minmax(100px, auto); */
-
+    grid-template-columns: 3fr 6fr 3fr; 
 }
 
 .gridProfile  div {
-    /* background: darkslategray; */
     padding: 5px;
-    /* display: grid;
-    grid-template-columns: 1fr; */
 }
 
 .profilePage {
@@ -533,25 +514,11 @@ form {
 /***** SECTION ITEM DISPLAY *****/
 
 .sectionItem    {
-    background: lightgreen;
+    background: grey;
+    padding:10px;
 }
 
-/***** THREAD LIST DISPLAY *****/
 
-/* .discussionList {
-    background: yellow;
-} */
-
-/* .threadButton {
-    background: pink;
-    float:right;
-    margin: 10px;
-    padding: 10px 0;
-    margin-bottom: 10px;
-    border-style: solid;
-    border-width: 3px;
-
-} */
 
 #btn-thread {
     padding: 0 18px;
@@ -562,10 +529,6 @@ form {
     border-style: solid;
     border-width: 2px;
 
-}
-
-.threadButton:hover {
-    background: lime;
 }
 
 /***** NEW THREAD DISPLAY *****/
@@ -606,6 +569,7 @@ form {
 
 .discussionItem {
     background: plum;
+    padding-bottom: 10px;
 }
 
 /***** COMMENT LIST DISPLAY *****/

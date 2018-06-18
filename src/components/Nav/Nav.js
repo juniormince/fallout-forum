@@ -8,6 +8,7 @@ import { USER_ACTIONS } from '../../redux/actions/userActions';
 
 import { slide as Menu } from 'react-burger-menu';
 import '../../styles/main.css';
+import '../../styles/icons/vaultboy-ok.gif';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -53,8 +54,10 @@ class Nav extends Component {
             onStateChange={this.isMenuOpen}
             customBurgerIcon={<img src="https://www.freeiconspng.com/uploads/fallout-4-icon-6.png" alt="nav icon"/>}
           >
+          <img src="https://i.imgur.com/DCyNeo6.gif" width="200px"/>
+          <br/>
             <Link id="contact" className="menu-item" to="/board">Home</Link>
-            <Link id="contact" className="menu-item" to={`/profile/${this.props.user.userId}`}>Profile Page</Link>
+            <Link id="contact" className="menu-item" to={`/profile/${this.props.user.userId}`}>Profile</Link>
             <Link id="about" className="menu-item" to="/user">User Settings</Link>
 
           </Menu>

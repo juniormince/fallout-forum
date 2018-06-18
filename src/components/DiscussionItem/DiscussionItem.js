@@ -37,12 +37,6 @@ class DiscussionItem extends Component {
       content = (
         <div className="discussionItem">
           <Link to={`/discussion/${this.props.thread.id}`}><h2>{this.props.thread.title} </h2></Link>
-          <span className="container">
-            latest reply by: user here (or started by: user ?)<br/>
-            date of latest reply here.
-            <p/>
-            thread id = {this.props.thread.id}
-          </span>
         </div>
       );
     }
