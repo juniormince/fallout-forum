@@ -24,7 +24,7 @@ export function callLogout() {
     withCredentials: true,
   };
 
-  return axios.get('api/user/logout', config)
+  return axios.get('/api/user/logout', config)
     .then(response => response.data)
     .catch((error) => {
       throw error.response || error;

@@ -108,6 +108,27 @@ button:hover {
         border-radius: 3px;
 }
 
+#btn-thread {
+        /* float:right; */
+        background: transparent;
+        border: 1px solid #35f78a;
+        clear: both;
+        color: #35f78a;
+        font-family: 'monofontoregular';
+        font-size: 16px;
+        margin-bottom: 20px;
+        letter-spacing: .5em;
+        padding: 10px;
+        text-transform: uppercase;
+        text-decoration: none;
+}
+
+#btn-thread:hover {
+    background: #00dd00;
+    color: black;
+    opacity: 0.8;
+    border-radius: 3px;
+}
 
 input {
     margin: 5px;
@@ -249,7 +270,7 @@ b   {
     text-align: center;
     grid-gap: 20px;
     text-transform: capitalize;
-    background-image: url('https://i.pinimg.com/originals/ac/e1/5f/ace15f49e18a66551aea4d7e800409bb.png');
+    background-image: url('https://i.imgur.com/7nlCcRX.png');
     background-size: cover;
 }
 
@@ -325,16 +346,12 @@ b   {
 
 /* threads nested in gridThread */
 .discussionList   {
-    background: yellow;
     grid-template-rows: 1fr;
-    /* grid-gap: 25px;  */
-    /* margin space around container */
 }
 
 
 
 /* thread nested in thread list MINI PROFILE GRID ALSO HERE */
-
 .gridCommentList   {
     display: grid;
     grid-template-columns: 3fr 10fr 3fr;
@@ -347,11 +364,10 @@ b   {
     grid-template-columns: 1fr 5fr;
     grid-column-gap: 10px;
     padding: 5px 10px;
-    /* margin: 0 5px; */
 }
 
-.commentButtons {
-    background: red;
+.miniInfo {
+    font-size: 16px;
 }
 
 
@@ -404,17 +420,15 @@ b   {
 /* Position and sizing of burger button */
 .bm-burger-button {
     position: fixed;
-    width: 50px;
-    height: 50px;
-    left: 50px;
-    top: 50px;
-    box-shadow: 3px 3px 5px black;
+    width: 75px;
+    height: 75px;
+    left: 75px;
+    top: 75px;
+    /* filter: blur(); */
   }
 
   .bm-burger-button:hover {
-    border-style: solid;
-    border-color: #373a47;
-    border-radius: 3px;
+    filter: grayscale(.8);
   }
   
   /* Position and sizing of clickable cross button */
@@ -460,7 +474,7 @@ b   {
   }
 
   a:hover   {
-      color: #00dd00;
+      text-shadow: 2px 2px yellow;
   }
 
   /* fixed empty block (placeholder space behind sidenav) */
@@ -492,11 +506,9 @@ form {
 
 #saveProfile {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 3fr;
     background: rgba(44, 46, 45, 0.5);
     border-style: solid;
-    /* width: 30%;
-    height: 250px; */
     margin: 20px auto;
     padding: 25px;
     border-radius: 2px;
@@ -527,7 +539,7 @@ form {
 
 .profilePage {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1fr 3fr;
     background: black;
     opacity: 1;
     margin-top: 5px;
@@ -567,27 +579,21 @@ form {
 
 /***** SECTION LIST DISPLAY *****/
 .sectionTopics   {
-    background: lightskyblue;
+    /* background: lightskyblue; */
+    /* background: #35f78a; */
 }
 
 /***** SECTION ITEM DISPLAY *****/
 
 .sectionItem    {
-    background: grey;
+    background: #35f78a;
     padding:10px;
 }
 
-
-
-#btn-thread {
-    padding: 0 18px;
-    font-size: 18px;
-    text-decoration: none;
-
-    background: pink;
-    border-style: solid;
-    border-width: 2px;
-
+.container{
+    color: black;
+    padding: 10px;
+    font-size: 16px;
 }
 
 /***** NEW THREAD DISPLAY *****/
@@ -628,14 +634,15 @@ form {
 /***** THREAD ITEM DISPLAY *****/
 
 .discussionItem {
-    background: plum;
+    background: #35f78a;
+    margin-top: 10px;
     padding-bottom: 10px;
 }
 
 /***** COMMENT LIST DISPLAY *****/
 
 .commentList    {
-    background: palegreen;
+    background:#35f78a;
 }
 
 textarea {
@@ -644,7 +651,12 @@ textarea {
     padding: 10px;
     margin: 10px;
     border-style: solid;
+    border-color: #35f78a;
     border-width: 3px;
+    background: #2e312b;
+    color: white;
+    font-family: 'monofontoregular';
+    font-size: 16px;
   }
   
 #theBox   {
@@ -661,8 +673,9 @@ textarea {
 /***** COMMENT ITEM DISPLAY *****/
 
 .comment    {
-    background: orange;
-    padding: 10px;
+    background: #222;
+    padding: 30px;
+    /* font-size: 16px; */
 }
 
 

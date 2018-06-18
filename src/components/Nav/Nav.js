@@ -58,7 +58,7 @@ class Nav extends Component {
             overlayClassName={"sidenav"}
             width={225}
             onStateChange={this.isMenuOpen}
-            customBurgerIcon={<img src="https://www.freeiconspng.com/uploads/fallout-4-icon-6.png" alt="nav icon"/>}
+            customBurgerIcon={<img src="https://i.imgur.com/PAvUyjf.png" alt="nav icon"/>}
           >
           <img src="https://i.imgur.com/DCyNeo6.gif" width="200px"/>
           <br/>

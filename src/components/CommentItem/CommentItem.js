@@ -94,7 +94,7 @@ class CommentItem extends Component {
       content = (
         <div>
           <span className="mini-profile">
-            <img className="userAvatar" src={this.props.comment.profile_img} width="100px" alt="user avatar" />
+            <img className="userAvatar" src={this.props.comment.profile_img} width="150px" alt="user avatar" />
             <span className="miniInfo">
               <span className="text"><Link to={`/profile/${this.props.comment.person_id}`}> {this.props.comment.username}</Link>
               </span>
@@ -118,7 +118,7 @@ class CommentItem extends Component {
                     <p>{this.props.comment.reply}</p>
                   </span>
                 }
-              </span> : ''}
+              </span> : <p>{this.props.comment.reply}</p> }
           </span>
         </div>
       );

@@ -96,12 +96,12 @@ class InfoPage extends Component {
           </div>
 
 
-          {/* <button
+          <button
             id="btn-logout"
             onClick={this.logout}
           >
             Log Out
-          </button> */}
+          </button>
 
         </div >
       );
