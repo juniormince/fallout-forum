@@ -18,7 +18,7 @@ class RegisterPage extends Component {
 
     if (this.state.username === '' || this.state.password === '') {
       this.setState({
-        message: 'Choose a username and password!',
+        message: 'ERROR: PLEASE CHOOSE A USERNAME AND PASSWORD.',
       });
     } else {
       const body = {
@@ -67,13 +67,13 @@ class RegisterPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="landingPage">
        <p className="registerAlert"> {this.renderAlert()} </p>
         <form onSubmit={this.registerUser}>
-          <h1>Register User</h1>
+          <h1>Register User.......</h1>
           <div>
             <label htmlFor="username">
-              Username:
+              >> Username:
               <input
                 type="text"
                 name="username"
@@ -84,7 +84,7 @@ class RegisterPage extends Component {
           </div>
           <div>
             <label htmlFor="password">
-              Password:
+              >> Password:
               <input
                 type="password"
                 name="password"
@@ -99,7 +99,7 @@ class RegisterPage extends Component {
               name="submit"
               value="Register"
             />
-            <Link to="/home">Cancel</Link>
+          <a href="/home">Cancel</a>
           </div>
         </form>
       </div>
