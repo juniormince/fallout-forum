@@ -26,7 +26,8 @@
 
 body {
     font-family: 'monofontoregular', 'Courier New', Courier;
-    background: black;
+    background: #222;
+    /* background-image: url('https://i.pinimg.com/736x/cd/fe/28/cdfe28b5282194f0111c0a1e1bc4bc66--modern-patterns-art-patterns.jpg'); */
     text-transform: uppercase;
     color: #35f78a;
     overflow:hidden;
@@ -86,8 +87,25 @@ body {
 
 /* general board tags */
 
+button {
+        background: transparent;
+        border: 1px solid #35f78a;
+        clear: both;
+        color: #35f78a;
+        font-family: 'monofontoregular';
+        font-size: 16px;
+        margin-bottom: 20px;
+        letter-spacing: .5em;
+        padding: 10px;
+        text-transform: uppercase;
+        text-decoration: none;
+}
+
 button:hover {
-    color: red;
+        background: #00dd00;
+        color: black;
+        opacity: 0.8;
+        border-radius: 3px;
 }
 
 
@@ -98,6 +116,29 @@ input {
 
 input[type="submit"] {
     margin: 10px;
+}
+
+input[type=submit],
+a.button {
+	background: transparent;
+	border: 1px solid #35f78a;
+	clear: both;
+	color: #35f78a;
+	font-family: 'monofontoregular';
+	font-size: 16px;
+    margin-bottom: 20px;
+    letter-spacing: .5em;
+	padding: 10px;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+input[type=submit]:hover,
+a.button:hover {
+	background: #00dd00;
+	color: black;
+    opacity: 0.8;
+    border-radius: 3px;
 }
 
 .message {
@@ -182,7 +223,7 @@ li a {
 /* Change the link color to #111 (black) on hover */
 li a:hover {
     text-decoration: none;
-    color: #eee;
+    color: #111;
 }
 
 a{
@@ -208,7 +249,8 @@ b   {
     text-align: center;
     grid-gap: 20px;
     text-transform: capitalize;
-    background-image: url('https://ichef.bbci.co.uk/images/ic/976xn/p027dlpq.jpg');
+    background-image: url('https://i.pinimg.com/originals/ac/e1/5f/ace15f49e18a66551aea4d7e800409bb.png');
+    background-size: cover;
 }
 
 .instructions div{
@@ -217,11 +259,10 @@ b   {
     text-align: center;
 }
 
-
 .instructions h1 {
-    font-size: 72px;
+    font-size: 96px;
     font-weight: 400;
-    text-shadow: 2px 2px red;
+    text-shadow: 3px 3px black;
     color: yellow;
     transform: rotate(-10deg);
     -webkit-transform: rotate(-10deg);
@@ -231,21 +272,27 @@ b   {
 
 .instructions h2 {
     display: grid;
-    font-size: 60px;
+    font-size: 48px;
     font-weight: 100;
-    text-shadow: 2px 2px red;
+    text-shadow: 3px 3px black;
     text-indent: 300px;
-    color: rgb(251, 255, 0);
+    font-family: 'monofontoregular';
+    text-transform: lowercase;
+    color: lightblue;
+    /* color: rgb(251, 255, 0); */
     transform: rotate(-10deg);
     -webkit-transform: rotate(-10deg);
-    /* font-weight: 400; */
-    /* text-transform: capitalize; */
-    /* padding-left: 100px; */
 }
 
+.instructions h1:hover{
+    color: black;
+    text-shadow: 3px 3px #35f78a;
+}
 
-
-
+.instructions h2:hover{
+    color: black;
+    text-shadow: 3px 3px #33ffff;
+}
 
 
 /***** BOARD GRID *****/
@@ -255,7 +302,8 @@ b   {
     grid-template-columns: 3fr 10fr 3fr; /* size of columns from left to right */
     grid-gap: 20px; 
     /* margin-top: 5px;  */
-    /* overflow-y:auto;  */
+    overflow-y:scroll; 
+    z-index: 1;
 }
 
 .gridBase  div {
@@ -396,7 +444,7 @@ b   {
   
   /* individual item */
   .bm-item {
-    padding-top: 20px;
+    padding: 15px;
     padding-right: 10px;
   }
   
@@ -412,7 +460,7 @@ b   {
   }
 
   a:hover   {
-      color: white;
+      color: #00dd00;
   }
 
   /* fixed empty block (placeholder space behind sidenav) */
@@ -429,15 +477,26 @@ b   {
 
 
 /***** LOG IN / OUT DISPLAY *****/
-/* ^^ look above and pull down here ^^ */
-
-
 /* (also in thread item display) */
 form {
-    background: rgba(54, 25, 25, .5);
+    /* display: grid;
+    grid-template-columns: 1fr 2fr; */
+    background: rgba(44, 46, 45, 0.5);
     border-style: solid;
     width: 30%;
     height: 250px;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 2px;
+}
+
+#saveProfile {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background: rgba(44, 46, 45, 0.5);
+    border-style: solid;
+    /* width: 30%;
+    height: 250px; */
     margin: 20px auto;
     padding: 25px;
     border-radius: 2px;
@@ -463,6 +522,7 @@ form {
 
 .gridProfile  div {
     padding: 5px;
+    margin-top: 5px;
 }
 
 .profilePage {
@@ -494,7 +554,6 @@ form {
 /***** PROFILE SETTINGS/CONTROL PANEL DISPLAY *****/
 
 .control {
-    background: fuchsia;
     margin-top: 5px;
 }
 
@@ -551,6 +610,7 @@ form {
 #newTitle {
     margin-left: 10px;
     width: 70%;
+    letter-spacing: .5em;
 }
 
 #newThreadBody {
