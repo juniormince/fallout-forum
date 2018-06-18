@@ -64,13 +64,13 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="landingPage">
         <p className="registerAlert"> {this.renderAlert()} </p>
-        <form onSubmit={this.login}>
-          <h1>Login</h1>
+        <form className="LoginForm" onSubmit={this.login}>
+          <h1>Enter Login.......</h1>
           <div>
             <label htmlFor="username">
-              Username:
+              >> Username:
               <input
                 type="text"
                 name="username"
@@ -81,7 +81,7 @@ class LoginPage extends Component {
           </div>
           <div>
             <label htmlFor="password">
-              Password:
+              >> Password:
               <input
                 type="password"
                 name="password"

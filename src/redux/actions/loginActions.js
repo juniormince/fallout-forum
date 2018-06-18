@@ -28,6 +28,6 @@ export const triggerLogout = () => ({
 export function formError() {
   return {
     type: LOGIN_ACTIONS.INPUT_ERROR,
-    payload: 'Enter your username and password!',
+    payload: 'ERROR: please enter username and password.',
   };
 }
