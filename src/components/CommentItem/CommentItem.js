@@ -41,31 +41,27 @@ class CommentItem extends Component {
         reply: event.target.value,
       }
     });
-    console.log(event.target.value);
+    // console.log(event.target.value);
   }
 
 
 
   //EDIT COMMENTS
   handleEditToggle = (comment) => {
-    console.log('edit button clicked');
     this.setState({
       editable: !this.state.editable,
     });
-    console.log(this.state.editable);
+    // console.log(this.state.editable);
   }
 
   handleEdit = (comment) => {
-    console.log('edit button clicked');
-    console.log(this.state.editable);
+    // console.log(this.state.editable);
     this.editComment(comment);
   }
 
   editComment = comment => {
-    console.log
     axios.put(`/api/editComment`, comment)
       .then(response => {
-        console.log(response);
         this.props.getComments();
         this.handleEditToggle();
       }).catch(error => {
@@ -75,10 +71,9 @@ class CommentItem extends Component {
 
 
   deleteComment = id => event => {
-    console.log('delete button clicked', id);
     axios.delete(`/api/deleteComment/${id}`, id)
       .then(response => {
-        console.log(response);
+        // console.log(response);
         this.props.getComments();
       }).catch(error => {
         console.log(error);

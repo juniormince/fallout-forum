@@ -4,7 +4,7 @@ import {
 } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { USER_ACTIONS } from '../../redux/actions/userActions';
+// import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
 
 import { slide as Menu } from 'react-burger-menu';
@@ -47,7 +47,7 @@ class Nav extends Component {
 
   logout = () => {
     this.props.dispatch(triggerLogout());
-    this.props.history.push('/home');
+    this.props.history.push('home');
   }
 
   render() {
@@ -60,7 +60,7 @@ class Nav extends Component {
             onStateChange={this.isMenuOpen}
             customBurgerIcon={<img src="https://i.imgur.com/PAvUyjf.png" alt="nav icon"/>}
           >
-          <img src="https://i.imgur.com/DCyNeo6.gif" width="200px"/>
+          <img src="https://i.imgur.com/DCyNeo6.gif" width="200px" alt="vault boy thumbs up"/>
           <br/>
             <Link id="contact" className="menu-item" to="/board">Home</Link>
             <Link id="contact" className="menu-item" to={`/profile/${this.props.user.userId}`}>Profile</Link>

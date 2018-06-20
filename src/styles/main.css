@@ -497,7 +497,7 @@ form {
     grid-template-columns: 1fr 2fr; */
     background: rgba(44, 46, 45, 0.5);
     border-style: solid;
-    width: 30%;
+    width: 40%;
     height: 250px;
     margin: 20px auto;
     padding: 25px;
@@ -578,10 +578,10 @@ form {
 
 
 /***** SECTION LIST DISPLAY *****/
-.sectionTopics   {
+/* .sectionTopics   { */
     /* background: lightskyblue; */
     /* background: #35f78a; */
-}
+/* } */
 
 /***** SECTION ITEM DISPLAY *****/
 
