@@ -41,31 +41,27 @@ class CommentItem extends Component {
         reply: event.target.value,
       }
     });
-    console.log(event.target.value);
+    // console.log(event.target.value);
   }
 
 
 
   //EDIT COMMENTS
   handleEditToggle = (comment) => {
-    console.log('edit button clicked');
     this.setState({
       editable: !this.state.editable,
     });
-    console.log(this.state.editable);
+    // console.log(this.state.editable);
   }
 
   handleEdit = (comment) => {
-    console.log('edit button clicked');
-    console.log(this.state.editable);
+    // console.log(this.state.editable);
     this.editComment(comment);
   }
 
   editComment = comment => {
-    console.log
     axios.put(`/api/editComment`, comment)
       .then(response => {
-        console.log(response);
         this.props.getComments();
         this.handleEditToggle();
       }).catch(error => {
@@ -75,10 +71,9 @@ class CommentItem extends Component {
 
 
   deleteComment = id => event => {
-    console.log('delete button clicked', id);
     axios.delete(`/api/deleteComment/${id}`, id)
       .then(response => {
-        console.log(response);
+        // console.log(response);
         this.props.getComments();
       }).catch(error => {
         console.log(error);
@@ -94,7 +89,7 @@ class CommentItem extends Component {
       content = (
         <div>
           <span className="mini-profile">
-            <img className="userAvatar" src={this.props.comment.profile_img} width="100px" alt="user avatar" />
+            <img className="userAvatar" src={this.props.comment.profile_img} width="150px" alt="user avatar" />
             <span className="miniInfo">
               <span className="text"><Link to={`/profile/${this.props.comment.person_id}`}> {this.props.comment.username}</Link>
               </span>
@@ -118,7 +113,7 @@ class CommentItem extends Component {
                     <p>{this.props.comment.reply}</p>
                   </span>
                 }
-              </span> : ''}
+              </span> : <p>{this.props.comment.reply}</p> }
           </span>
         </div>
       );

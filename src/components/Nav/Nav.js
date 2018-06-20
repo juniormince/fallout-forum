@@ -3,11 +3,13 @@ import {
   Link
 } from 'react-router-dom';
 import { connect } from 'react-redux';
-//icon pack here?
-import { USER_ACTIONS } from '../../redux/actions/userActions';
+
+// import { USER_ACTIONS } from '../../redux/actions/userActions';
+import { triggerLogout } from '../../redux/actions/loginActions';
 
 import { slide as Menu } from 'react-burger-menu';
 import '../../styles/main.css';
+import '../../styles/icons/vaultboy-ok.gif';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -43,6 +45,11 @@ class Nav extends Component {
     this.setState({ menuOpen: !this.state.menuOpen })
   }
 
+  logout = () => {
+    this.props.dispatch(triggerLogout());
+    this.props.history.push('home');
+  }
+
   render() {
     return (
       <div>
@@ -51,12 +58,19 @@ class Nav extends Component {
             overlayClassName={"sidenav"}
             width={225}
             onStateChange={this.isMenuOpen}
-            customBurgerIcon={<img src="https://www.freeiconspng.com/uploads/fallout-4-icon-6.png" alt="nav icon"/>}
+            customBurgerIcon={<img src="https://i.imgur.com/PAvUyjf.png" alt="nav icon"/>}
           >
+          <img src="https://i.imgur.com/DCyNeo6.gif" width="200px" alt="vault boy thumbs up"/>
+          <br/>
             <Link id="contact" className="menu-item" to="/board">Home</Link>
-            <Link id="contact" className="menu-item" to={`/profile/${this.props.user.userId}`}>Profile Page</Link>
+            <Link id="contact" className="menu-item" to={`/profile/${this.props.user.userId}`}>Profile</Link>
             <Link id="about" className="menu-item" to="/user">User Settings</Link>
-
+            <button
+            id="btn-logout"
+            onClick={this.logout}
+          >
+            Log Out
+          </button>
           </Menu>
         </aside>
       </div>

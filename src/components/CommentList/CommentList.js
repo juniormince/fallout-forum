@@ -37,10 +37,10 @@ class CommentList extends Component {
 
     //get comments from discussion
     getComments = () => {
-        console.log('this.props.match', this.props.match)
+        // console.log('this.props.match', this.props.match);
         axios.get(`/api/comments/${this.props.match.params.id}`)
             .then((response) => {
-                console.log(response.data);
+                // console.log(response.data);
                 this.setState({
                     commentList: response.data,
                 });
@@ -54,16 +54,16 @@ class CommentList extends Component {
     // for textarea reply
     handleChange = (event) => {
         this.setState({ reply: event.target.value });
-        console.log(event.target.value);
+        // console.log(event.target.value);
     }
 
     //getting a 500 atm
     addReply = (event) => {
         event.preventDefault();
-        console.log('whats state', this.state);
+        // console.log('whats state', this.state);
         axios.post('/api/newReply', this.state)
             .then(response => {
-                console.log(response);
+                // console.log(response);
                 this.getComments();
             }).catch(error => {
                 console.log(error);

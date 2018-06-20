@@ -41,7 +41,6 @@ class SectionItem extends Component {
                 <div className="sectionItem">
                     <Link to={`/threadlist/${this.props.topic.id}`}><h1>{this.props.topic.title}</h1></Link>
                     <div className="container">
-                    <p>{this.props.topic.id}</p>
                     <p>{this.props.topic.description}</p>
                     </div>
                 </div>

@@ -60,32 +60,44 @@ class InfoPage extends Component {
 
     if (this.props.user.userName) {
       content = (
-          <div className="profilepage">
+        <div className="profilePage">
           <h1>Profile Page</h1>
-          <div className="userInfo">
+          <div className="user">
+            <div className="userImage">
               {this.state.profile.map(prof =>
                 <p key={prof.id}>
-                <img id="avatar" src={prof.profile_img} alt="profile avatar"/><br/>
-                 <b>username:</b> 
-                 {prof.username}<br/>
-                 <b>alias:</b> 
-                  {prof.profile_alias}<br/>
-                 <b>location:</b>
-                 {prof.profile_location}<br/>
-                 <b>timezone:</b> 
-                 {prof.profile_timezone}<br/>
-                 <b>contact:</b> 
-                 {prof.profile_contact}
-dghsadgshajdsgh dsgahdjs adsgahjd saghdsad sagdhsjad sgahdjsadsa dgshaj dsa dgshaj
+                  <img id="avatar" src={prof.profile_img} alt="profile avatar" />
                 </p>
               )}
             </div>
 
+            <div className="userInfo">
+              {this.state.profile.map(prof =>
+                <p key={prof.id}>
+                  >><b>username:</b>
+                  {prof.username}<br />
+                  <br />
+                  >><b>alias:</b>
+                  {prof.profile_alias}<br />
+                  <br />
+                  >><b>location:</b>
+                  {prof.profile_location}<br />
+                  <br />
+                  >><b>timezone:</b>
+                  {prof.profile_timezone}<br />
+                  <br />
+                  >><b>contact:</b>
+                  {prof.profile_contact}<br />
+
+                </p>
+              )}
+            </div>
+
+          </div>
 
 
-
-          <button 
-          id="btn-logout"
+          <button
+            id="btn-logout"
             onClick={this.logout}
           >
             Log Out
