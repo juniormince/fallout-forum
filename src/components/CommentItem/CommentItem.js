@@ -41,7 +41,6 @@ class CommentItem extends Component {
         reply: event.target.value,
       }
     });
-    // console.log(event.target.value);
   }
 
 
@@ -51,11 +50,9 @@ class CommentItem extends Component {
     this.setState({
       editable: !this.state.editable,
     });
-    // console.log(this.state.editable);
   }
 
   handleEdit = (comment) => {
-    // console.log(this.state.editable);
     this.editComment(comment);
   }
 
@@ -73,7 +70,6 @@ class CommentItem extends Component {
   deleteComment = id => event => {
     axios.delete(`/api/deleteComment/${id}`, id)
       .then(response => {
-        // console.log(response);
         this.props.getComments();
       }).catch(error => {
         console.log(error);

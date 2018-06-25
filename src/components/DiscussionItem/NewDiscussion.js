@@ -66,7 +66,6 @@ class newThread extends Component {
         let objectToSend = {newThread: this.state.newThread, topicId: this.props.match.params.id}
         axios.post(`/api/newThread/`, objectToSend)
             .then((response) => {
-                console.log(response.data);
                 let commentObject = { reply: this.state.newThread.body, commentList: response.data }
                 axios.post('/api/newReply', commentObject)
                     .then((response) => {
