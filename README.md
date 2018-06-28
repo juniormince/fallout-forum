@@ -8,4 +8,4 @@
 
  ## Demo
 
-deployed to heroku:
+deployment coming soon.
