@@ -9,4 +9,4 @@
  ## Demo
 
 deployed to heroku:\
-https://futureforum.herokuapp.com/home
+https://futureforum.herokuapp.com/
