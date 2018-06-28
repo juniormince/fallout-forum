@@ -8,4 +8,5 @@
 
  ## Demo
 
-deployment coming soon.
+deployed to heroku:\
+https://futureforum.herokuapp.com/home
