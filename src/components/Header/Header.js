@@ -9,8 +9,8 @@ const Header = ({ title }) => (
   <div/>
     <Router>
       <div>
-        <div><a href="/board"><h1 className="lead">{title}</h1></a>
-        <a href="/board"><h2>the forum of the future!</h2></a></div>
+        <div><h1 className="lead">{title}</h1>
+        <h2>the forum of the future!</h2></div>
       </div>
     </Router>
   </div>
