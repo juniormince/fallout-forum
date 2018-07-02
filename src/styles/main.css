@@ -37,7 +37,7 @@ body {
 
 .landingPage  {
     animation:colorPulse 5s infinite ease-in-out;
-    height:100vh;
+    height:60vh;
     overflow:hidden;
     width:100vw;
 }
