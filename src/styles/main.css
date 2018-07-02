@@ -36,14 +36,14 @@ body {
 
 
 .landingPage  {
-    animation:colorPulse 5s infinite ease-in-out;
+    animation:colorPulse 1s infinite ease-in-out;
     height:60vh;
     overflow:hidden;
     width:100vw;
 }
 
 .landingPage:before {
-    animation:wave 10s infinite ease-in-out;
+    animation:wave 8s infinite ease-in-out;
     content:"";
     height:20vh;
     left:0;
@@ -69,18 +69,18 @@ body {
 
   @keyframes wave {
     0% {
-      box-shadow:0 -10vh 20vh #0c0;
+      box-shadow:0 -10vh 20vh #00dd00;
       top:-100vh;
     }
     46%, 52% {
-      box-shadow:0 -10vh 20vh #090;
+      box-shadow:0 -10vh 20vh #00b300;
     }
     50% {
       box-shadow:0 -10vh 20vh #060;
     }
     100% {
-      box-shadow:0 -10vh 20vh #0c0;
-      top:100vh;
+      box-shadow:0 -10vh 20vh #00dd00;
+      top:120vh;
     }
   }
 
