@@ -10,3 +10,17 @@
 
 deployed to heroku:\
 https://futureforum.herokuapp.com/
+
+
+ ## Technologies used:
+ 
+• PostgreSQL
+• Express
+• Node
+• React
+• Redux
+• Redux-saga
+• PostgreSQL
+• Passport
+• [React-Burger-Menu](https://github.com/negomi/react-burger-menu)
+• HTML/CSS
