@@ -95,14 +95,6 @@ class InfoPage extends Component {
 
           </div>
 
-
-          <button
-            id="btn-logout"
-            onClick={this.logout}
-          >
-            Log Out
-          </button>
-
         </div >
       );
     }

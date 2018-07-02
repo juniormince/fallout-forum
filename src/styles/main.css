@@ -430,7 +430,6 @@ b   {
   
   /* wrapper for item list */
   .bm-item-list {
-    /* padding-top: 50px; */
     color: #2e312b;
     text-align: right;
   }
@@ -443,7 +442,7 @@ b   {
   
   /* styling of overlay */
   .bm-overlay.sidenav {
-    margin-top: -250px;
+    margin-top: -275px;
     background: rgba(0, 0, 0, 0.3);
   }
   

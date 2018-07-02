@@ -4,7 +4,7 @@ import {
 } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-// import { USER_ACTIONS } from '../../redux/actions/userActions';
+import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
 
 import { slide as Menu } from 'react-burger-menu';
@@ -36,7 +36,7 @@ class Nav extends Component {
     this.setState({ menuOpen: state.isOpen })
   }
 
-  // This can be used to close the menu, e.g. when a user clicks a menu item
+  // this can be used to close the menu, e.g. when a user clicks a menu item
   closeMenu() {
     this.setState({ menuOpen: false })
   }
@@ -47,7 +47,7 @@ class Nav extends Component {
 
   logout = () => {
     this.props.dispatch(triggerLogout());
-    this.props.history.push('home');
+    // this.props.history.push('home');
   }
 
   render() {
@@ -71,6 +71,7 @@ class Nav extends Component {
           >
             Log Out
           </button>
+          
           </Menu>
         </aside>
       </div>
