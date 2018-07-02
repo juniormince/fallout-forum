@@ -14,13 +14,12 @@ https://futureforum.herokuapp.com/
 
  ## Technologies used:
  
-• PostgreSQL
-• Express
-• Node
-• React
-• Redux
-• Redux-saga
-• PostgreSQL
-• Passport
-• [React-Burger-Menu](https://github.com/negomi/react-burger-menu)
+• Express(https://github.com/expressjs/express)\
+• Node(https://github.com/nodejs/node)\
+• React(https://github.com/reactjs)\
+• Redux(https://github.com/reduxjs/react-redux)\
+• Redux-saga(https://github.com/redux-saga/redux-saga)\
+• PostgreSQL(https://www.postgresql.org/)\
+• Passport(http://www.passportjs.org/)\
+• [React-Burger-Menu](https://github.com/negomi/react-burger-menu)\
 • HTML/CSS
