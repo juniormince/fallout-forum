@@ -7,7 +7,6 @@
  >it is an ongoing side project, with more features (and less bugs!) on the way.
 
  ## Demo
-
 deployed to heroku:\
 https://futureforum.herokuapp.com/
 
