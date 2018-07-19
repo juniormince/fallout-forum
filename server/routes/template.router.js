@@ -3,34 +3,12 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 
-// reorganize route list after completed
-// ******** = incomplete/not functional
 
-/// GET profile [DONE]
-router.get('/profile/:id', (req, res) => {
-    console.log('GET all route for user', req.params.id);
-    if (req.isAuthenticated()) {
-        let queryText = `SELECT * FROM "person" WHERE "id" = $1;`;
-        pool.query(queryText, [req.user.id])
-            .then((result) => {
-                res.send(result.rows);
-            }).catch((error) => {
-                console.log('error on person GET: ', error);
-                res.sendStatus(500);
-            })
-    }
-    else {
-        res.sendStatus(403);
-    }
-});
-
-////GET topics [DONE]
+////GET topics
 router.get('/topics', (req, res) => {
-    console.log('GET all route for TOPIC');
     if (req.isAuthenticated()) {
         let queryText = `SELECT * FROM "topic"
                         ORDER BY "topic"."id" ASC;`;
-
         pool.query(queryText)
             .then((result) => {
                 res.send(result.rows);
@@ -43,13 +21,10 @@ router.get('/topics', (req, res) => {
     }
 });
 
-// GET threads [DONE]
+// GET threads
 router.get('/threads/:id', (req, res) => {
-    console.log('/threads with param:', req.params.id);
-    console.log('GET all route for thread');
     if (req.isAuthenticated()) {
         id = req.params.id;
-        //  let thread = req.params
         let queryText = `SELECT * FROM "thread" where "topic_id" = $1
                         ORDER BY "thread"."id" ASC;`;
         pool.query(queryText, [id])
@@ -64,10 +39,8 @@ router.get('/threads/:id', (req, res) => {
     }
 });
 
-// GET comments [DONE]
+// GET comments
 router.get('/comments/:id', (req, res) => {
-    console.log('/comments with param:', req.params.id);
-    console.log('GET all route for comments');
     if (req.isAuthenticated()) {
         let id = req.params.id;
         let queryText = `SELECT "person"."profile_img", "person"."username", "person"."id", 
@@ -79,7 +52,6 @@ router.get('/comments/:id', (req, res) => {
                         JOIN "thread" ON "comment"."thread_id" = "thread"."id"
                         WHERE "thread"."id" = $1
                         ORDER BY "comment"."id" ASC;`;
-        //change to ORDER BY "comment"."date"
         pool.query(queryText, [id])
             .then((result) => {
                 res.send(result.rows);
@@ -92,10 +64,9 @@ router.get('/comments/:id', (req, res) => {
     }
 });
 
-// POST route (new reply/comment) [DONE]
+// POST route (new reply/comment)
 router.post('/newReply', (req, res) => {
     if (req.isAuthenticated()) {
-        console.log(req.body);
         let queryText = `INSERT INTO "comment" ("reply", "thread_id", "person_id")
                         VALUES ($1, $2, $3)`;
         pool.query(queryText, 
@@ -112,10 +83,9 @@ router.post('/newReply', (req, res) => {
     }
 });
 
-// ******** POST route template (new thread)
+// POST route (new thread)
 router.post('/newThread', (req, res) => {
     if (req.isAuthenticated()) {
-        console.log(req.body);
         let queryText = `INSERT INTO "thread" ("title", "person_id", "body", "topic_id")
                         VALUES ($1, $2, $3, $4)
                         RETURNING id AS thread_id`;
@@ -133,7 +103,7 @@ router.post('/newThread', (req, res) => {
 });
 
 
-// GET profile [DONE]
+// GET profile
 router.get('/profile/:id', (req, res) => {
     console.log('GET all route for user', req.params.id);
     if (req.isAuthenticated()) {
@@ -152,7 +122,7 @@ router.get('/profile/:id', (req, res) => {
     }
 });
 
-// ******** PUT edit profile settings
+// ******** PUT edit profile settings [WIP]
 router.put('/settings/:id', (req, res) => {
     console.log('PUT settings route');
     if (req.isAuthenticated() && req.params.id === req.user.id) {
@@ -174,6 +144,7 @@ router.put('/settings/:id', (req, res) => {
 
 });
 
+// PUT route (edit comment)
 router.put('/editComment', (req, res) => {
     console.log('PUT editComment route');
     console.log(req.body);
@@ -195,7 +166,7 @@ router.put('/editComment', (req, res) => {
 
 });
 
-// ******** DELETE route template (delete comments)
+// DELETE route (delete a comment)
 router.delete('/deleteComment/:id', (req, res) => {
     console.log('DELETE comment route', req.params.id);
     if(req.isAuthenticated() ) {
