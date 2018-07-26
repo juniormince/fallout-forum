@@ -22,3 +22,12 @@ https://futureforum.herokuapp.com/
 • [Passport](http://www.passportjs.org/) \
 • [React-Burger-Menu](https://github.com/negomi/react-burger-menu) \
 • HTML/CSS
+
+## Future Features
+• ABILITY TO EDIT USER PROFILE\
+• DYNAMIC: MINI-PROFILE, SIDEBAR, AND HEADER NAVIGATION\
+• ROUTING FOR UNIQUE PROFILE PAGES\
+• HTML-ENABLED/RICH TEXTBOX FOR MEDIA POSTS AND FORMATTING ABILITY\
+• TIMESTAMPS ON POSTS\
+• CHATBOX\
+• + MORE
