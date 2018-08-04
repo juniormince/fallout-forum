@@ -27,11 +27,6 @@ class SectionItem extends Component {
         }
     }
 
-    //  figure out how to click/get to thread by ID
-    //     toThread = (event) => {
-    //         axios.get ??
-    //   }
-
     render() {
         let content = null;
 

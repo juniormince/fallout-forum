@@ -10,6 +10,9 @@
 deployed to heroku:\
 https://futureforum.herokuapp.com/
 
+ ## Screenshots
+
+![home page](screenshots/futurforum1.png "home page")
 
  ## Technologies used:
  
