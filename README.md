@@ -27,11 +27,11 @@ https://futureforum.herokuapp.com/
 • HTML/CSS
 
 ## Future Features
-• Ability to edit user profile\
-• Dynamic: mini profile, sidebar, and header navigation\
-• Routing to unique profile pages (from mini-profiles in threads)\
-• HTML-enabled/rich textbox for media posts and formatting ability\
-• Timestamps on posts + threads\
-• Chatbox\
-• Online users list\
-• + MORE
+[ ] Ability to edit user profile\
+[ ] Dynamic: mini profile, sidebar, and header navigation\
+[ ] Routing to unique profile pages (from mini-profiles in threads)\
+[ ] HTML-enabled/rich textbox for media posts and formatting ability\
+[ ] Timestamps on posts + threads\
+[ ] Chatbox\
+[ ] Online users list\
+[ ] + MORE
