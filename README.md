@@ -4,7 +4,7 @@
  Registration grants users a vault-dweller profile, with the ability to create discussions and comment on other user’s posts.
 
  >Future Forum was built in a 2 week sprint in early June 2018.\
- >it is an ongoing side project, with more features (and less bugs!) on the way.
+ >as an ongoing side project, more features (and less bugs) will be added.
 
  ## Demo
 deployed to heroku:\
