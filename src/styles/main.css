@@ -32,7 +32,10 @@ body {
     overflow-x:hidden;
 }
 
-
+/* FOR QUILL TESTING */
+#editor-container {
+    height: 375px;
+  }  
 
 
 .landingPage  {

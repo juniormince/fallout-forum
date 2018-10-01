@@ -5,6 +5,10 @@ import axios from 'axios';
 import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
+//react quill test
+import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill';
+
+
 //styling
 import '../../styles/main.css';
 
@@ -12,6 +16,7 @@ import '../../styles/main.css';
 const mapStateToProps = state => ({
     user: state.user,
 });
+
 
 class newThread extends Component {
     constructor(props) {
@@ -62,8 +67,9 @@ class newThread extends Component {
     }
 
 
+
     newThread = () => {
-        let objectToSend = {newThread: this.state.newThread, topicId: this.props.match.params.id}
+        let objectToSend = { newThread: this.state.newThread, topicId: this.props.match.params.id }
         axios.post(`/api/newThread/`, objectToSend)
             .then((response) => {
                 let commentObject = { reply: this.state.newThread.body, commentList: response.data }
@@ -84,19 +90,24 @@ class newThread extends Component {
         let content = null;
         if (this.props.user.userName) {
             content = (
-                <form id="newThreadForm" onSubmit={this.handleSubmit}>
-                    <label>
-                        <div id="newTitle">
-                            Title:
+                <div class="TEST DIV">
+                    <form id="newThreadForm" onSubmit={this.handleSubmit}>
+                        <label>
+                            <div id="newTitle">
+                                Title:
                         </div>
-                        <input id="newThreadTitle" type="text" onChange={this.handleChange('title')} />
-                        <p />
-                        <div id="newThreadBody"><textarea value={this.state.value} onChange={this.handleChange('body')} /></div>
-                    </label>
+                            <input id="newThreadTitle" type="text" onChange={this.handleChange('title')} />
+                            <p />
+                            <div id="newThreadBody"><textarea value={this.state.value} onChange={this.handleChange('body')} /></div>
+                        </label>
 
-                    <input id="threadAdd" type="submit" value="Submit" />
-                </form>
+                        <input id="threadAdd" type="submit" value="Submit" />
+                    </form>
 
+                    {/* TEXT EDITOR TESTING */}
+                    {/* <div id="editor-container">
+                    </div> */}
+                </div>
             );
         }
 
