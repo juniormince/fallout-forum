@@ -35,4 +35,4 @@ https://futureforum.herokuapp.com/
 [ ] Timestamps on posts + threads\
 [ ] Chatbox\
 [ ] Online users list\
-[ ] + MORE\ 
+[ ] + MORE
