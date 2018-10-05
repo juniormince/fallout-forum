@@ -27,7 +27,7 @@ https://futureforum.herokuapp.com/
 • HTML/CSS
 
 ## Future Features TO DO LIST
-[ ] ***Ability to edit user profile (reroute redux for user objects)***\
+[ ] ***Ability to edit user profile (reroute redux for user objects)*** \
 [ ] Dynamic: mini profile, sidebar, and header navigation\
 [ ] Routing to unique profile pages (from mini-profiles in threads)\
 [ ] ***HTML-enabled/rich textbox for media posts and formatting ability***(new comment)\
