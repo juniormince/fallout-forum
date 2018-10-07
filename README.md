@@ -31,7 +31,7 @@ https://futureforum.herokuapp.com/
 [ ] Dynamic: mini profile, sidebar, and header navigation\
 [ ] Routing to unique profile pages (from mini-profiles in threads)\
 [ ] ***HTML-enabled/rich textbox for media posts and formatting ability***(new comment)\
-[ ] (+ rich textbox for editing existing comments)\
+[ ] (+ HTML-enabled/rich textbox for editing existing comments)\
 [ ] Timestamps on posts + threads\
 [ ] Chatbox\
 [ ] Online users list\
